@@ -1,0 +1,7 @@
+RewriteEngine On
+#RewriteBase /cert/
+RewriteBase /labs/obv/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule .(/)?$ /index.php
+RewriteRule ^([a-zA-Z0-9-\/]+)$ index.php?vurl=$1
