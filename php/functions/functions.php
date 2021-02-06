@@ -1,4 +1,9 @@
 <?php 
+// funcao que carrega as classes automaticamente
+spl_autoload_register(function ($class) {
+    require_once(str_replace('\\', '/', $class . '.php'));
+});
+
 function mkQString($url){
   $_varname='';
   $a = explode('/',$url);

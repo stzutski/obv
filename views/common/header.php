@@ -219,9 +219,9 @@
     <div class="page-body-wrapper horizontal-menu">
       <!-- Page Sidebar Start-->
       <div class="sidebar-wrapper">
-        <div class="logo-wrapper"><a href="{$urlApp}"><img class="img-fluid" src="assets/images/logo/logo.png"
+        <div class="logo-wrapper"><a href="<?php echo URLAPP;?>"><img class="img-fluid" src="assets/images/logo/logo.png"
               alt=""></a></div>
-        <div class="logo-icon-wrapper"><a href="{$urlApp}"><img class="img-fluid"
+        <div class="logo-icon-wrapper"><a href="<?php echo URLAPP;?>"><img class="img-fluid"
               src="assets/images/logo/logo-icon.png" alt=""></a></div>
         <nav>
           <div class="sidebar-main">
@@ -233,16 +233,16 @@
                   <div class="mobile-back text-right"><span>Back</span><i class="fa fa-angle-right pl-2"
                       aria-hidden="true"></i></div>
                 </li>
-                
-                <?php 
+
+                <?php
                 if(USERLEVEL == 'cliente'){
-                  include_once('views/menu-lateral-cliente.php');
+                  include_once('views/common/menu-lateral-cliente.php');
                   }
                 if(USERLEVEL == 'admin'){
-                  include_once('views/menu-lateral-admin.php');
+                  include_once('views/common/menu-lateral-admin.php');
                   }
                 if(USERLEVEL == 'master'){
-                  include_once('views/menu-lateral-master.php');
+                  include_once('views/common/menu-lateral-master.php');
                   }
                 ?>
 
