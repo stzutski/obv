@@ -1,6 +1,6 @@
 
 <li class="sidebar-list">
-  <a class="sidebar-link sidebar-title link-nav" href="<?php echo $dashBoardPath;?>">
+  <a class="sidebar-link sidebar-title link-nav" href="<?php echo URLAPP;?>">
     <i data-feather="home"></i><span>Dashboard</span></a>
 </li>
 
@@ -46,7 +46,7 @@
     <li><a href="modulo/servicos/opt/lista">Listar</a></li>
     <li><a href="modulo/servicos/opt/cadastro">Cadastro</a></li>
     <li><a href="modulo/servicos/opt/lista-etapas">Etapas</a></li>
-    <li><a href="modulo/servicos/opt/add-etapas">Cad. Etapa</a></li>
+    <li><a href="modulo/servicos/opt/cad-etapas">Cad. Etapa</a></li>
   </ul>
 </li>
 

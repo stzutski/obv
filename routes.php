@@ -60,7 +60,7 @@ $_POST_do    = postVar('do');
 
 if(!$_GET_modulo){//include dashboard
 
-  include_once("{$dashBoardPath}dashboad-".USEDASHBOARD.".php");
+  include_once("{$dashBoardPath}dashboard-".USEDASHBOARD.".php");
   
 }else{
   
@@ -78,15 +78,6 @@ if(!$_GET_modulo){//include dashboard
 
 
 
-
-
-?>
-
-
-
-
-
-if(getVar(''))
 
 
 ?>

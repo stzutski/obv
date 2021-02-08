@@ -9,13 +9,7 @@
                     <li class="breadcrumb-item">Color Version</li>
                   </ol>
                 </div>
-                <div class="col-lg-6">
-
-
-bookmarks
-
-
-                </div>
+                <div class="col-lg-6"><!-- bookmarks --></div>
               </div>
             </div>
           </div>

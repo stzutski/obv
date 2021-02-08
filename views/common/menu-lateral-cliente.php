@@ -1,6 +1,6 @@
 
   <li class="sidebar-list">
-    <a class="nav-link sidebar-title" href="{$urlApp}">
+    <a class="nav-link sidebar-title" href="<?php echo URLAPP;?>">
       <i data-feather="home"></i><span>Dashboard</span></a>
   </li>
   

@@ -1,5 +1,5 @@
 <?php
-$u_level = 'admin';
+$u_level = 'master';
 define('VIEWSPATH','views/');
 define('URLAPP','http://localhost/labs/obv/');
 define('TITLEAPP','Oba Visto!');
