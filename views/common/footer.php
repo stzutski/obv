@@ -28,15 +28,23 @@
     <script src="assets/js/datatable/datatables/datatable.custom.js"></script>
     <!-- <script src="assets/js/custom-card/custom-card.js"></script> -->
     <script src="assets/js/tooltip-init.js"></script>
-    <script src="assets/js/alertify.min.js"></script>
+    <script src="assets/alertify/alertify.min.js"></script>
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="assets/js/script.js"></script>
     <script src="assets/js/script-acto.js"></script>
     <!-- login js-->
     <!-- Plugin used-->
-    <script type="text/javascript">
-      // alertify.prompt("sou um teste");
-    </script>
+    <?php 
+    if(sessionVar('notify')){
+      $_notify = sessionVar('notify');
+      echo '<script type="text/javascript">'."\n";
+      //echo 'setTimeout(function (){'."\n";
+      echo "alertify.".$_notify['type']."(\"".addslashes($_notify['message'])."\");";
+      unset($_SESSION['notify']);
+      //echo "\n}, 1000);";
+      echo "\n</script>";
+    }
+    ?>
   </body>
 </html>

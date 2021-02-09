@@ -3,7 +3,7 @@
             <div class="page-title">
               <div class="row">
                 <div class="col-lg-12">
-                  <h3>USUÁRIO MASTER</h3>
+                  <h3>USUÁRIO MASTER3333</h3>
                   <span>
                   Empresas são unidades de negócio podem ter um administrador e múltiplos funcionários.<br />
                   Cada empresa deve ter o seu núcleo próprio de contas a receber e atendimento ao cliente.
@@ -21,9 +21,9 @@
 
               <div class="col-sm-12">
 
-
-                  <form class="form-horizontal">
-
+                  <!-- FORM CADASTRO EMPRESA -->
+                  <form class="form-horizontal" id="frm-empresas" name="frm-empresas" method="post" action="<?php echo URLAPP;?>">
+                  <input type="hidden" id="do" name="do" value="add-empresa" />
 
                     <ul class="nav nav-tabs border-tab" id="top-tab" role="tablist">
                       <li class="nav-item"><a class="nav-link active" id="top-home-tab" data-toggle="tab" href="#top-home"
@@ -46,7 +46,7 @@
                           <div class="form-group row">
 
                           <div class="col-lg-6">
-                          <label class="control-label text-lg-left" for="textinput">Razão Social</label>
+                          <label class="control-label text-lg-left" for="textinput">Razão Social,,,</label>
                           <input id="razao_empresa" name="razao_empresa" type="text" placeholder="Nome Razão"
                           class="form-control btn-square input-md" value="">
                           </div>
@@ -483,7 +483,7 @@
                     <!-- Button -->
                     <div class="form-group row">
                       <div class="col-lg-12">
-                        <button id="singlebutton" name="singlebutton" class="btn btn-primary">SALVAR DADOS</button>
+                        <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">SALVAR DADOS</button>
                       </div>
                     </div>
                   </form>

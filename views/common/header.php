@@ -33,8 +33,8 @@
   <link rel="stylesheet" type="text/css" href="assets/css/vendors/animate.css">
   <link rel="stylesheet" type="text/css" href="assets/css/vendors/chartist.css">
   <link rel="stylesheet" type="text/css" href="assets/css/vendors/date-picker.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/alertify.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/alertify.default.css">
+  <link rel="stylesheet" type="text/css" href="assets/alertify/alertify.core.css">
+  <link rel="stylesheet" type="text/css" href="assets/alertify/alertify.default.css">
   <!-- Plugins css Ends-->
   <!-- Bootstrap css-->
   <link rel="stylesheet" type="text/css" href="assets/css/vendors/bootstrap.css">
