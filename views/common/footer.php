@@ -26,6 +26,7 @@
     <!-- Plugins JS start-->
     <script src="assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
     <script src="assets/js/datatable/datatables/datatable.custom.js"></script>
+    <script src="assets/js/masks.js"></script>
     <!-- <script src="assets/js/custom-card/custom-card.js"></script> -->
     <script src="assets/js/tooltip-init.js"></script>
     <script src="assets/alertify/alertify.min.js"></script>
@@ -36,15 +37,8 @@
     <!-- login js-->
     <!-- Plugin used-->
     <?php 
-    if(sessionVar('notify')){
-      $_notify = sessionVar('notify');
-      echo '<script type="text/javascript">'."\n";
-      //echo 'setTimeout(function (){'."\n";
-      echo "alertify.".$_notify['type']."(\"".addslashes($_notify['message'])."\");";
-      unset($_SESSION['notify']);
-      //echo "\n}, 1000);";
-      echo "\n</script>";
-    }
+    echo notifyJs();
+    echo showErrorForms($_erroForm);
     ?>
   </body>
 </html>

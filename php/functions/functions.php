@@ -46,8 +46,160 @@ function arrayVar($_ARRAY,$varname){
 }
 
 
+function urlPostModulo($modulo=''){
+  $_uid = '';
+  if(getVar('uid')){$_uid = '/uid/' . getVar('uid'); }
+  $url = URLAPP . 'modulo/' . getVar('modulo') . '/opt/' . getVar('opt') . $_uid;
+  return $url;
+}
+
+/*
+ * funcao para montar diversas urls do app
+ * */
+function getLocation($target='',$args=array()){
+  
+  $res = '';
+  
+  if($target=='urlPost'){
+    $_uid = '';
+    if(getVar('uid')){$_uid = '/uid/' . getVar('uid'); }
+    $res = URLAPP . 'modulo/' . getVar('modulo') . '/opt/' . getVar('opt') . $_uid;
+  }
+  
+  if($target=='fileProcess'){
+    $res = 'models/'. USEDASHBOARD . '/' . getVar('modulo') .'/' . postVar('do') . '.process.php'; 
+  }
+  
+  return $res;  
+}
+
+
+/*
+ * funcao para gerar a notificacao JS
+ * */
+function notifyJs(){
+    $scriptTag = '';
+    $_notify = sessionVar('notify');
+    
+    if( ($_notify['type']=='error' && postVar('do')!='') || ( $_notify['type']!='error' && postVar('do')=='' ) )
+    {
+      if($_notify['type']!=''){
+      $scriptTag  = '<script type="text/javascript">'."\n";
+      //$scriptTag .= 'setTimeout(function (){'."\n";
+      $scriptTag .= "alertify.".$_notify['type']."(\"".addslashes($_notify['message'])."\");";
+      //$scriptTag .= "\n}, 1000);";
+      $scriptTag .= "\n</script>";
+      }
+      unset($_SESSION['notify']);
+    }
+    return $scriptTag;
+    var_dump($scriptTag);
+    exit;
+}
+
+/*
+ * funcao para imprimir title do error do campo no formulario
+ * */
+function titleError($campoId=''){
+  global $_erroForm;
+  if(arrayVar($_erroForm,$campoId)){
+      return "title=\"$_erroForm[$campoId]\"";
+  }
+}
+
+
+/*
+ * funcao para exibir o box com msgs de erros da submissao do formulario
+ * */
+function boxPostErrors()
+{
+  global $_erroForm;
+  $_errorBox='';
+  if(count($_erroForm)>0){
+    //$_errorBox  = '<div class="alert-danger alert dark alert-dismissible fade show" role="alert">';
+    $_errorBox  = '<div class="alert alert-warning alert-dismissible fade show" role="alert">';
+    $_errorBox  .= '<h4>ERROS ENCONTRADOS!</h4><br />';
+    $ne=1;
+    foreach ($_erroForm as $key => $value) {
+      $_errorBox .= "($ne) $value <br />";
+      $ne++;
+    }
+    
+    $_errorBox .= '<button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
+    $_errorBox .= '</div>';
+  }
+  return $_errorBox;
+}
 
 
 
+/*
+ * funcao para mascaras em JS dos campos do formulario
+ * */
+function jsMask($tipo='',$max='')
+{
+  $mask = '';
+  if($max!=''){$max = "maxlength=\"$max\"";}
+  if($tipo=='inteiro')
+  {
+  $mask = 'onKeyDown="Mascara(this,Integer);" onKeyPress="Mascara(this,Integer);" onKeyUp="Mascara(this,Integer);"';
+  }
+  if($tipo=='cep')
+  {
+  $mask = 'onKeyDown="Mascara(this,Cep);" onKeyPress="Mascara(this,Cep);" onKeyUp="Mascara(this,Cep);"';
+  }
+  if($tipo=='cnpj')
+  {
+  $mask = 'onKeyDown="Mascara(this,Cnpj);" onKeyPress="Mascara(this,Cnpj);" onKeyUp="Mascara(this,Cnpj);"';
+  }
+  if($tipo=='cpf')
+  {
+  $mask = 'onKeyDown="Mascara(this,Cpf);" onKeyPress="Mascara(this,Cpf);" onKeyUp="Mascara(this,Cpf);"';
+  }
+  if($tipo=='data')
+  {
+  $mask = 'onKeyDown="Mascara(this,Data);" onKeyPress="Mascara(this,Data);" onKeyUp="Mascara(this,Data);"';
+  }
+  if($tipo=='hora')
+  {
+  $mask = 'onKeyDown="Mascara(this,Hora);" onKeyPress="Mascara(this,Hora);" onKeyUp="Mascara(this,Hora);"';
+  }
+  if($tipo=='valor')
+  {
+  $mask = 'onKeyDown="Mascara(this,Valor);" onKeyPress="Mascara(this,Valor);" onKeyUp="Mascara(this,Valor);"';
+  }
+  if($tipo=='telefone')
+  {
+  $mask = 'onKeyDown="Mascara(this,Telefone);" onKeyPress="Mascara(this,Telefone);" onKeyUp="Mascara(this,Telefone);"';
+  }
+  if($tipo=='website')
+  {
+  $mask = 'onKeyDown="Mascara(this,Site);" onKeyPress="Mascara(this,Site);" onKeyUp="Mascara(this,Site);"';
+  }
+  if($tipo=='email')
+  {
+  $mask = 'onKeyDown="Mascara(this,Email);" onKeyPress="Mascara(this,Email);" onKeyUp="Mascara(this,Email);"';
+  }
+  
+  $mask = "$mask $max";
+  
+  return $mask;
+}
+
+
+/*
+ * funcao para destacar erros no formulario
+ * */
+function showErrorForms($errors=array())
+{
+  $_erros = '';
+  foreach ($errors as $key => $value) {
+    $_erros .= "$('#$key').css(\"border\",\"1px solid red\");\n";
+  }
+  $tag_realce = "<script type=\"text/javascript\">\n".$_erros."</script>\n";
+  if($_erros!=''){
+      return $tag_realce;
+  }
+}  
 
 ?>

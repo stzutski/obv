@@ -4,11 +4,12 @@ require_once('configs.php');
 
 
 if(postVar('do')!=''){
-
-  $_pathProcess = $dashBoardPath . getVar('modulo'). "process/" . postVar('do') . ".php";
+  $_pathProcess = getLocation('fileProcess');
+  //var_dump($_pathProcess);
+  //exit;
   include_once($_pathProcess);  
 
-}else{
+}
 
   //include header
   require_once(VIEWSPATH . 'common/header.php');
@@ -22,5 +23,5 @@ if(postVar('do')!=''){
   //include rodape
   require_once(VIEWSPATH . 'common/footer.php');
 
-}
+
 ?>

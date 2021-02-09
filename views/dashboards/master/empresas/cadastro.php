@@ -3,7 +3,7 @@
             <div class="page-title">
               <div class="row">
                 <div class="col-lg-12">
-                  <h3>USUÁRIO MASTER3333</h3>
+                  <h3>USUÁRIO MASTER <?php if(isSet($var_teste333)){echo $var_teste333;}?></h3>
                   <span>
                   Empresas são unidades de negócio podem ter um administrador e múltiplos funcionários.<br />
                   Cada empresa deve ter o seu núcleo próprio de contas a receber e atendimento ao cliente.
@@ -15,15 +15,21 @@
             </div>
           </div>
           
+          
           <!-- Container-fluid starts-->
           <div class="container-fluid">
             <div class="row starter-main">
 
               <div class="col-sm-12">
 
+                  <?php echo boxPostErrors();?>
+
+
                   <!-- FORM CADASTRO EMPRESA -->
-                  <form class="form-horizontal" id="frm-empresas" name="frm-empresas" method="post" action="<?php echo URLAPP;?>">
-                  <input type="hidden" id="do" name="do" value="add-empresa" />
+                  <form class="form-horizontal" id="frm-empresas" name="frm-empresas" method="post" action="<?php echo getLocation('urlPost');?>">
+                  <input type="hidden" id="do" name="do" value="empresas" />
+                  <input type="hidden" id="opt" name="opt" value="save" />
+                  <input type="hidden" id="uid_empresa" name="uid_empresa" value="<?php echo getVar('uid');?>" />
 
                     <ul class="nav nav-tabs border-tab" id="top-tab" role="tablist">
                       <li class="nav-item"><a class="nav-link active" id="top-home-tab" data-toggle="tab" href="#top-home"
@@ -44,18 +50,30 @@
 
                           <!-- Text field-->
                           <div class="form-group row">
+                            
+                          <div class="col-lg-6">
+                          <label class="control-label text-lg-left" for="textinput">Descrição Empresa</label>
+                          <input <?php echo jsMask('',20);?> id="desc_empresa" name="desc_empresa" type="text" placeholder="Descrição"
+                          class="form-control btn-square input-md" value="">
+                          </div>
+
+                          </div>
+                          
+                          
+                          <!-- Text field-->
+                          <div class="form-group row">
 
                           <div class="col-lg-6">
-                          <label class="control-label text-lg-left" for="textinput">Razão Social,,,</label>
-                          <input id="razao_empresa" name="razao_empresa" type="text" placeholder="Nome Razão"
-                          class="form-control btn-square input-md" value="">
+                          <label class="control-label text-lg-left" for="textinput">Razão Social</label>
+                          <input <?php echo titleError('razao_empresa');?> id="razao_empresa" name="razao_empresa" type="text" placeholder="Nome Razão"
+                          class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'razao_empresa');?>">
                           </div>
 
 
                           <div class="col-lg-6">
                           <label class="control-label text-lg-left" for="textinput">Nome Fantasia</label>
-                          <input id="fantasia_empresa" name="fantasia_empresa" type="text" placeholder="Nome Fantasia"
-                          class="form-control btn-square input-md" value="">
+                          <input <?php echo titleError('fantasia_empresa');?> id="fantasia_empresa" name="fantasia_empresa" type="text" placeholder="Nome Fantasia"
+                          class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'fantasia_empresa');?>">
                           </div>
 
                           </div>
@@ -66,7 +84,7 @@
 
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">CNPJ</label>
-                            <input id="cnpj_empresa" name="cnpj_empresa" type="text" placeholder="00.000.000/0000-00"
+                            <input <?php echo jsMask('cnpj',19);?> id="cnpj_empresa" name="cnpj_empresa" type="text" placeholder="00.000.000/0000-00"
                             class="form-control btn-square input-md" value="">
                             </div>
 
@@ -113,14 +131,14 @@
 
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">Tel. Comercial</label>
-                            <input id="telcom_empresa" name="telcom_empresa" type="text" placeholder="00 00000-0000"
+                            <input <?php echo jsMask('telefone');?> id="telcom_empresa" name="telcom_empresa" type="text" placeholder="00 00000-0000"
                             class="form-control btn-square input-md" value="">
                             </div>
 
 
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">Tel Celular</label>
-                            <input id="telcel_empresa" name="telcel_empresa" type="text" placeholder="00 00000-0000"
+                            <input <?php echo jsMask('telefone');?> id="telcel_empresa" name="telcel_empresa" type="text" placeholder="00 00000-0000"
                             class="form-control btn-square input-md" value="">
                             </div>
 
@@ -133,14 +151,14 @@
 
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">End. de Email</label>
-                            <input id="email_empresa" name="email_empresa" type="text" placeholder="ex: email@empresa.com.br"
+                            <input <?php echo titleError('email_empresa');?> id="email_empresa" name="email_empresa" type="text" placeholder="ex: email@empresa.com.br"
                             class="form-control btn-square input-md" value="">
                             </div>
 
 
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">Website</label>
-                            <input id="website_empresa" name="website_empresa" type="text" placeholder="ex: www.empresa.com.br"
+                            <input <?php echo jsMask('website');?> id="website_empresa" name="website_empresa" type="text" placeholder="ex: www.empresa.com.br"
                             class="form-control btn-square input-md" value="">
                             </div>
 
@@ -172,14 +190,14 @@
 
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">Youtube</label>
-                            <input id="you_empresa" name="you_empresa" type="text" placeholder=""
+                            <input id="you_empresa" name="youtube_empresa" type="text" placeholder=""
                             class="form-control btn-square input-md" value="">
                             </div>
 
 
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">Twitter</label>
-                            <input id="twit_empresa" name="twit_empresa" type="text" placeholder=""
+                            <input id="twit_empresa" name="twitter_empresa" type="text" placeholder=""
                             class="form-control btn-square input-md" value="">
                             </div>
 
@@ -205,7 +223,7 @@
 
                             <div class="col-lg-12">
                             <label class="control-label text-lg-left" for="textinput">Endereço</label>
-                            <input id="end_empresa" name="end_empresa" type="text" placeholder=""
+                            <input id="end_empresa" name="endereco_empresa" type="text" placeholder=""
                             class="form-control btn-square input-md" value="">
                             </div>
 
@@ -217,21 +235,21 @@
 
                             <div class="col-lg-2">
                             <label class="control-label text-lg-left" for="textinput">Núm.</label>
-                            <input id="num_empresa" name="num_empresa" type="text" placeholder=""
+                            <input id="num_empresa" name="numero_empresa" type="text" placeholder=""
                             class="form-control btn-square input-md" value="">
                             </div>
 
 
                             <div class="col-lg-5">
                             <label class="control-label text-lg-left" for="textinput">Complemento</label>
-                            <input id="comp_empresa" name="comp_empresa" type="text" placeholder=""
+                            <input id="comp_empresa" name="complemento_empresa" type="text" placeholder=""
                             class="form-control btn-square input-md" value="">
                             </div>
 
 
                             <div class="col-lg-5">
                             <label class="control-label text-lg-left" for="textinput">CEP</label>
-                            <input id="cep_empresa" name="cep_empresa" type="text" placeholder=""
+                            <input <?php echo jsMask('cep',9);?> id="cep_empresa" name="cep_empresa" type="text" placeholder=""
                             class="form-control btn-square input-md" value="">
                             </div>
 
@@ -244,14 +262,14 @@
 
                             <div class="col-lg-3">
                             <label class="control-label text-lg-left" for="textinput">Bairro</label>
-                            <input id="bai_empresa" name="bai_empresa" type="text" placeholder=""
+                            <input id="bai_empresa" name="bairro_empresa" type="text" placeholder=""
                             class="form-control btn-square input-md" value="">
                             </div>
 
 
                             <div class="col-lg-3">
                             <label class="control-label text-lg-left" for="textinput">Cidade</label>
-                            <input id="cid_empresa" name="cid_empresa" type="text" placeholder=""
+                            <input id="cid_empresa" name="cidade_empresa" type="text" placeholder=""
                             class="form-control btn-square input-md" value="">
                             </div>
 
