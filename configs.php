@@ -14,6 +14,9 @@ $dashBoardPath      = 'views/dashboards/' . USEDASHBOARD . '/';
 require_once('php/functions/functions.php');
 require_once('php/functions/functions.html.php');
 
+use \php\classes\DB\Sql;
+
+//use \php\classes\master\Admins;
 
 //modulo/empresas/opt/cadastro
 ?>

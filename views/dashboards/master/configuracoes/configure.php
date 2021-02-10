@@ -2,14 +2,10 @@
           <div class="container-fluid">
             <div class="page-title">
               <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                   <h3>USUÁRIO MASTER</h3>
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../ltr/index.html">Home</a></li>
-                    <li class="breadcrumb-item">Color Version</li>
-                  </ol>
+                  <small>Campos com * são obrigatórios</small>
                 </div>
-                <div class="col-lg-6"><!-- bookmarks --></div>
               </div>
             </div>
           </div>

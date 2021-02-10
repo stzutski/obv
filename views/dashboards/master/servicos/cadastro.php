@@ -13,7 +13,7 @@
                   </span>
                   <h6 class="font-primary"><small>* Informe os dados do formulário e clique em <b>SALVAR DADOS</b>, ou <button
                   type="button" class="btn btn-danger btn-xs">Clique aqui para INATIVAR este serviço</button></small></h6>                  
-
+                  <small>Campos com * são obrigatórios</small>
 
                 </div>
 

@@ -14,6 +14,7 @@
                   <button type="button" class="btn btn-danger btn-xs">Clique aqui para excluir</button>
                   </small>
                   </h6>
+                  <small>Campos com * são obrigatórios</small>
                   </div>
               </div>
             </div>
@@ -35,7 +36,6 @@
 
               <!-- Form Name -->
               <h6 class="m-t-10">Cadastro de Administradores</h6>
-              <small>Campos com * são obrigatórios</small>
               <hr>
 
 

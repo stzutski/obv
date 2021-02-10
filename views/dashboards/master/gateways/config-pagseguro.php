@@ -10,6 +10,7 @@
                   </span>
                   <h6 class="font-primary"><small>* Informe os dados do formulário e clique em <b>SALVAR DADOS</b>, ou <button
                   type="button" class="btn btn-primary btn-xs">Clique aqui para INATIVAR O GATEWAY</button></small></h6>
+                  <small>Campos com * são obrigatórios</small>
                 </div>
               </div>
             </div>
