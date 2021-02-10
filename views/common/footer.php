@@ -26,6 +26,7 @@
     <!-- Plugins JS start-->
     <script src="assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
     <script src="assets/js/datatable/datatables/datatable.custom.js"></script>
+    <script src="assets/js/form-validation-custom.js"></script>
     <script src="assets/js/masks.js"></script>
     <!-- <script src="assets/js/custom-card/custom-card.js"></script> -->
     <script src="assets/js/tooltip-init.js"></script>

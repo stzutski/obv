@@ -30,11 +30,12 @@
 
 
 
-          <form class="form-horizontal">
+          <form class="form-horizontal needs-validation" novalidate="">
             <fieldset>
 
               <!-- Form Name -->
               <h6 class="m-t-10">Cadastro de Administradores</h6>
+              <small>Campos com * são obrigatórios</small>
               <hr>
 
 
@@ -42,13 +43,13 @@
               <div class="form-group row">
 
                   <div class="col-lg-6">
-                  <label class="control-label text-lg-left" for="textinput">Nome</label>
-                  <input id="nomeAdmin" name="nomeAdmin" type="text" placeholder="Nome admin" class="form-control btn-square input-md" value="">
+                  <label class="control-label text-lg-left" for="textinput">Nome *</label>
+                  <input id="nomeAdmin" name="nomeAdmin" type="text" placeholder="Nome admin" class="form-control btn-square input-md" required="" value="">
                   </div>
 
                   <div class="col-lg-6">
-                  <label class="control-label text-lg-left" for="textinput">Sobrenome</label>
-                  <input id="sobrenomeAdmin" name="sobrenomeAdmin" type="text" placeholder="Sobrenome" class="form-control btn-square input-md" value="">
+                  <label class="control-label text-lg-left" for="textinput">Sobrenome *</label>
+                  <input id="sobrenomeAdmin" name="sobrenomeAdmin" type="text" placeholder="Sobrenome" class="form-control btn-square input-md" required="" value="">
                   </div>
                 
               </div>
@@ -59,8 +60,8 @@
               <div class="form-group row">
 
                   <div class="col-lg-6">
-                  <label class="control-label text-lg-left" for="textinput">Email</label>
-                  <input id="emailAdmin" name="emailAdmin" type="text" placeholder="email@doadmin.com.br" class="form-control btn-square input-md" value="">
+                  <label class="control-label text-lg-left" for="textinput">Email *</label>
+                  <input id="emailAdmin" name="emailAdmin" type="text" placeholder="email@doadmin.com.br" class="form-control btn-square input-md" required="" value="">
                   </div>
 
 
@@ -75,8 +76,8 @@
               <!-- Text field-->
               <div class="form-group row">
                   <div class="col-lg-12">
-                  <label class="control-label text-lg-left" for="textinput">Empresa</label>
-                  <select id="telAdmin" name="telAdmin" class="form-control">
+                  <label class="control-label text-lg-left" for="textinput">Empresa *</label>
+                  <select id="telAdmin" name="telAdmin" class="form-control" required="">
                   <option value="">selecione</option>
                   </select>
                   </div>
@@ -88,14 +89,14 @@
               <div class="form-group row">
                 
                   <div class="col-lg-6">
-                  <label class="control-label text-lg-left" for="textinput">Senha do Admin</label>
-                  <input id="senhaAdmin" name="senhaAdmin" type="password" class="form-control btn-square input-md" value="">
+                  <label class="control-label text-lg-left" for="textinput">Senha do Admin *</label>
+                  <input id="senhaAdmin" name="senhaAdmin" type="password" class="form-control btn-square input-md" required="" value="">
                   </div>
 
 
                   <div class="col-lg-6">
-                  <label class="control-label text-lg-left" for="textinput">Confirme a Senha</label>
-                  <input id="confPwd" name="confPwd" type="password" class="form-control btn-square input-md" value="">
+                  <label class="control-label text-lg-left" for="textinput">Confirme a Senha *</label>
+                  <input id="confPwd" name="confPwd" type="password" class="form-control btn-square input-md" required="" value="">
                   </div>
                   
               </div>
@@ -103,7 +104,7 @@
 
               <div class="form-group row">
                 <div class="col-lg-12">
-                  <button id="singlebutton" name="singlebutton" class="btn btn-primary">SALVAR DADOS</button>
+                  <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">SALVAR DADOS</button>
                 </div>
               </div>
 
