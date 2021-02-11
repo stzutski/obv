@@ -27883,3 +27883,10 @@ body[class*='dark-'] .for-light {
 /**=====================
     64. Custom CSS start
 ==========================**/
+
+
+.frm-erro-notify > li{
+  color:#fff!important;
+  list-style:disc!important;
+  list-style-position: inside!important;
+}

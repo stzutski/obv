@@ -3,12 +3,12 @@
 require_once('configs.php');
 
 
+// INCLUDE DO ARQUIVO DE PROCESSAMENTO DO MODULO EM USO
+// SOMENTE SERÁ CARREGADO DURANTE O PROCESSAMENTO DE UM POST 
+// EXEMPLO ADD UPDATE
 if(postVar('do')!=''){
   $_pathProcess = getLocation('fileProcess');
-  //var_dump($_pathProcess);
-  //exit;
   include_once($_pathProcess);  
-
 }
 
   //include header

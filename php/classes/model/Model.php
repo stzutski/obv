@@ -49,7 +49,6 @@ class Model {
 	public function queryBuilder($campos=array()){
 		$args			=	false;
 
-
 		if(count($campos)>0){
 			$columns	=	'';
 			$values		=	'';
@@ -84,7 +83,7 @@ class Model {
 			return false;
 		}
 	}
-
+	
 }
 
  ?>

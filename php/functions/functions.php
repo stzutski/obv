@@ -1,4 +1,4 @@
-<?php 
+<?php
 // funcao que carrega as classes automaticamente
 spl_autoload_register(function ($class) {
     require_once(str_replace('\\', '/', $class . '.php'));
@@ -40,9 +40,20 @@ function dataVar($_RESOURCE,$varname){
   if(isSet($_RESOURCE[$varname])){if($_RESOURCE[$varname]=='' || $_RESOURCE[$varname]!=''){return $_RESOURCE[$varname];}}
   else{return false;}
 }
-function arrayVar($_ARRAY,$varname){
-  if(isSet($_ARRAY[$varname])){if($_ARRAY[$varname]=='' || $_ARRAY[$varname]!=''){return $_ARRAY[$varname];}}
-  else{return false;}
+function arrayVar($_ARRAY,$varname=''){
+  if($varname==''){
+    if(isSet($_ARRAY)){return true;}else{return false;}
+  }else{
+    if(isSet($_ARRAY[$varname])){
+        if($_ARRAY[$varname]=='' || $_ARRAY[$varname]!=''){
+          return $_ARRAY[$varname];
+        }
+    }
+    else
+    {
+      return false;
+    }
+  }
 }
 
 
@@ -57,30 +68,46 @@ function urlPostModulo($modulo=''){
  * funcao para montar diversas urls do app
  * */
 function getLocation($target='',$args=array()){
-  
+
   $res = '';
-  
+
   if($target=='urlPost'){
     $_uid = '';
     if(getVar('uid')){$_uid = '/uid/' . getVar('uid'); }
     $res = URLAPP . 'modulo/' . getVar('modulo') . '/opt/' . getVar('opt') . $_uid;
   }
-  
+
   if($target=='fileProcess'){
-    $res = 'models/'. USEDASHBOARD . '/' . getVar('modulo') .'/' . postVar('do') . '.process.php'; 
+    $res = 'models/'. USEDASHBOARD . '/' . getVar('modulo') .'/' . postVar('do') . '.process.php';
   }
-  
-  return $res;  
+
+  return $res;
+}
+
+/*
+funcao para SETAR a notificação
+*/
+function notificacaoJs($type='log',$message='MSG NAO INFORMADA',$location=''){
+
+  if($type!=''){
+    $not = array('type'=>$type,'message'=>$message);
+    $_SESSION['notify'] = $not;
+  }
+  if($location!=''){
+    header('location: '.URLAPP.$location);
+  }
+
 }
 
 
+
 /*
- * funcao para gerar a notificacao JS
+ * funcao para gerar a tag script de notificacao JS
  * */
 function notifyJs(){
     $scriptTag = '';
     $_notify = sessionVar('notify');
-    
+
     if( ($_notify['type']=='error' && postVar('do')!='') || ( $_notify['type']!='error' && postVar('do')=='' ) )
     {
       if($_notify['type']!=''){
@@ -111,20 +138,22 @@ function titleError($campoId=''){
 /*
  * funcao para exibir o box com msgs de erros da submissao do formulario
  * */
-function boxPostErrors()
+function boxPostErrors($_erroForm=array())
 {
-  global $_erroForm;
+  //global $_erroForm;
   $_errorBox='';
   if(count($_erroForm)>0){
     //$_errorBox  = '<div class="alert-danger alert dark alert-dismissible fade show" role="alert">';
-    $_errorBox  = '<div class="alert alert-warning alert-dismissible fade show" role="alert">';
-    $_errorBox  .= '<h4>ERROS ENCONTRADOS!</h4><br />';
+    $_errorBox  = '<div class="alert alert-warning alert-dismissible fade show" role="alert" style="background-color:#BD2130!important;">';
+    $_errorBox  .= '<h6>ERROS ENCONTRADOS!</h6><br />';
+    $_errorBox  .= "<ul class=\"frm-erro-notify\">\n";
     $ne=1;
     foreach ($_erroForm as $key => $value) {
-      $_errorBox .= "($ne) $value <br />";
+      $_errorBox .= "<li>$value</li>\n";
       $ne++;
     }
-    
+
+    $_errorBox .= "</ul>";
     $_errorBox .= '<button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
     $_errorBox .= '</div>';
   }
@@ -180,9 +209,9 @@ function jsMask($tipo='',$max='')
   {
   $mask = 'onKeyDown="Mascara(this,Email);" onKeyPress="Mascara(this,Email);" onKeyUp="Mascara(this,Email);"';
   }
-  
+
   $mask = "$mask $max";
-  
+
   return $mask;
 }
 
@@ -200,6 +229,6 @@ function showErrorForms($errors=array())
   if($_erros!=''){
       return $tag_realce;
   }
-}  
+}
 
 ?>

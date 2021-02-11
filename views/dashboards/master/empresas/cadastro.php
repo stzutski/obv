@@ -23,8 +23,13 @@
 
               <div class="col-sm-12">
 
-                  <?php echo boxPostErrors();?>
+                  <?php //if(isArray($_erroForm) && count($_erroForm)>0){ echo boxPostErrors(); }?>
+                  <?php if(is_array($_erroForm)){ echo boxPostErrors($_erroForm); } ?>
+                  <?php
+                  //retorna dados do cadastro com base no ID
 
+
+                   ?>
 
                   <!-- FORM CADASTRO EMPRESA -->
                   <form class="form-horizontal needs-validation" novalidate="" id="frm-empresas" name="frm-empresas" method="post" action="<?php echo getLocation('urlPost');?>">
@@ -55,7 +60,7 @@
                           <div class="col-lg-6">
                           <label class="control-label text-lg-left" for="textinput">Descrição Empresa *</label>
                           <input <?php echo jsMask('',20);?> id="desc_empresa" name="desc_empresa" type="text" placeholder="Descrição"
-                          class="form-control btn-square input-md" required="" value="">
+                          class="form-control btn-square input-md" required="" value="<?php echo arrayVar($_formData,'desc_empresa');?>">
                           </div>
 
                           </div>
@@ -86,14 +91,14 @@
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">CNPJ</label>
                             <input <?php echo jsMask('cnpj',19);?> id="cnpj_empresa" name="cnpj_empresa" type="text" placeholder="00.000.000/0000-00"
-                            class="form-control btn-square input-md" value="">
+                            class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'cnpj_empresa');?>">
                             </div>
 
 
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">Insc. Estadual</label>
                             <input id="ie_empresa" name="ie_empresa" type="text" placeholder="00000000 (ou ISENTA)"
-                            class="form-control btn-square input-md" value="">
+                            class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'ie_empresa');?>">
                             </div>
 
 
@@ -106,14 +111,14 @@
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">Insc. Municipal</label>
                             <input id="im_empresa" name="im_empresa" type="text" placeholder="00000000 (ou ISENTA)"
-                            class="form-control btn-square input-md" value="">
+                            class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'im_empresa');?>">
                             </div>
 
 
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">Regime Tributário</label>
                             <input id="regime_empresa" name="regime_empresa" type="text" placeholder="ex: Lucro Real, Lucro Presumido, Simples Nacional"
-                            class="form-control btn-square input-md" value="">
+                            class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'regime_empresa');?>">
                             </div>
 
 
@@ -133,14 +138,14 @@
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">Tel. Comercial</label>
                             <input <?php echo jsMask('telefone');?> id="telcom_empresa" name="telcom_empresa" type="text" placeholder="00 00000-0000"
-                            class="form-control btn-square input-md" value="">
+                            class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'telcom_empresa');?>">
                             </div>
 
 
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">Tel Celular</label>
                             <input <?php echo jsMask('telefone');?> id="telcel_empresa" name="telcel_empresa" type="text" placeholder="00 00000-0000"
-                            class="form-control btn-square input-md" value="">
+                            class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'telcel_empresa');?>">
                             </div>
 
 
@@ -153,14 +158,14 @@
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">End. de Email *</label>
                             <input <?php echo titleError('email_empresa');?> id="email_empresa" name="email_empresa" type="text" placeholder="ex: email@empresa.com.br"
-                            class="form-control btn-square input-md" required="" value="">
+                            class="form-control btn-square input-md" required="" value="<?php echo arrayVar($_formData,'email_empresa');?>">
                             </div>
 
 
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">Website</label>
                             <input <?php echo jsMask('website');?> id="website_empresa" name="website_empresa" type="text" placeholder="ex: www.empresa.com.br"
-                            class="form-control btn-square input-md" value="">
+                            class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'website_empresa');?>">
                             </div>
 
 
@@ -173,14 +178,14 @@
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">Facebook</label>
                             <input id="fb_empresa" name="fb_empresa" type="text" placeholder="ex: "
-                            class="form-control btn-square input-md" value="">
+                            class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'fb_empresa');?>">
                             </div>
 
 
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">Instagram</label>
-                            <input id="insta_empresa" name="insta_empresa" type="text" placeholder=""
-                            class="form-control btn-square input-md" value="">
+                            <input id="instagram_empresa" name="instagram_empresa" type="text" placeholder=""
+                            class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'instagram_empresa');?>">
                             </div>
 
                           </div>
@@ -192,14 +197,14 @@
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">Youtube</label>
                             <input id="you_empresa" name="youtube_empresa" type="text" placeholder=""
-                            class="form-control btn-square input-md" value="">
+                            class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'youtube_empresa');?>">
                             </div>
 
 
                             <div class="col-lg-6">
                             <label class="control-label text-lg-left" for="textinput">Twitter</label>
                             <input id="twit_empresa" name="twitter_empresa" type="text" placeholder=""
-                            class="form-control btn-square input-md" value="">
+                            class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'twitter_empresa');?>">
                             </div>
 
 
@@ -225,7 +230,7 @@
                             <div class="col-lg-12">
                             <label class="control-label text-lg-left" for="textinput">Endereço</label>
                             <input id="end_empresa" name="endereco_empresa" type="text" placeholder=""
-                            class="form-control btn-square input-md" value="">
+                            class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'endereco_empresa');?>">
                             </div>
 
                           </div>
@@ -237,21 +242,21 @@
                             <div class="col-lg-2">
                             <label class="control-label text-lg-left" for="textinput">Núm.</label>
                             <input id="num_empresa" name="numero_empresa" type="text" placeholder=""
-                            class="form-control btn-square input-md" value="">
+                            class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'numero_empresa');?>">
                             </div>
 
 
                             <div class="col-lg-5">
                             <label class="control-label text-lg-left" for="textinput">Complemento</label>
                             <input id="comp_empresa" name="complemento_empresa" type="text" placeholder=""
-                            class="form-control btn-square input-md" value="">
+                            class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'complemento_empresa');?>">
                             </div>
 
 
                             <div class="col-lg-5">
                             <label class="control-label text-lg-left" for="textinput">CEP</label>
                             <input <?php echo jsMask('cep',9);?> id="cep_empresa" name="cep_empresa" type="text" placeholder=""
-                            class="form-control btn-square input-md" value="">
+                            class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'cep_empresa');?>">
                             </div>
 
 
@@ -264,14 +269,14 @@
                             <div class="col-lg-3">
                             <label class="control-label text-lg-left" for="textinput">Bairro</label>
                             <input id="bai_empresa" name="bairro_empresa" type="text" placeholder=""
-                            class="form-control btn-square input-md" value="">
+                            class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'bairro_empresa');?>">
                             </div>
 
 
                             <div class="col-lg-3">
                             <label class="control-label text-lg-left" for="textinput">Cidade</label>
                             <input id="cid_empresa" name="cidade_empresa" type="text" placeholder=""
-                            class="form-control btn-square input-md" value="">
+                            class="form-control btn-square input-md" value="<?php echo arrayVar($_formData,'cidade_empresa');?>">
                             </div>
 
 

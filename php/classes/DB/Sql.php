@@ -42,12 +42,34 @@ class Sql {
 
 	public function query($rawQuery, $params = array())
 	{
-
+		$lstId=0;
+		// $this->conn->beginTransaction();
 		$stmt = $this->conn->prepare($rawQuery);
-
 		$this->setParams($stmt, $params);
-
 		$stmt->execute();
+		$lstId 	= $this->conn->lastInsertId();//ultimo ID inserido
+		$rowC 	= $stmt->rowCount();//linhas afetadas na query
+		$eMsg		= $stmt->errorInfo();//error message
+
+
+		if ($eMsg[1]>1) {
+		  return $eMsg;
+		}else{
+
+			if(strstr(strtoupper($rawQuery),"INSERT")){
+				return $lstId;
+			}else{
+				return $rowC;
+			}
+
+		}
+
+
+		//var_dump();
+		//exit;
+		// $this->conn->commit();
+		//
+
 
 	}
 
@@ -58,9 +80,11 @@ class Sql {
 
 		$this->setParams($stmt, $params);
 
-		$stmt->execute();
-
-		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+		if (!$stmt->execute()) {
+		    print_r($stmt->errorInfo());
+		}else{
+			return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+		}
 
 	}
 
