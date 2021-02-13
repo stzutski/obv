@@ -77,7 +77,7 @@ if($_postOption=='save')
 			}
 			if($res[1]!='')
 			{
-				notificacaoJs('log',"<h5>Erro Número ($res[1])</h5><p>Erro no Processamento, aguarde alguns minutos e tente novamente se o erro persistir, contate o suporte e informe o código deste erro.<p>",'modulo/empresas/opt/cadastro/uid/'.postVar('uid_empresa')."/error/".$res[1]."000");
+				notificacaoJs('log',"<h5>Erro Número (".arrayVar($res,1).")</h5><p>Erro no Processamento, aguarde alguns minutos e tente novamente se o erro persistir, contate o suporte e informe o código deste erro.<p>",'modulo/empresas/opt/cadastro/uid/'.postVar('uid_empresa')."/error/".$res[1]."000");
 			}
 
 

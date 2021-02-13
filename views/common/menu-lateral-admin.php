@@ -48,6 +48,6 @@
 </li>
 
 <li class="sidebar-list">
-  <a class="sidebar-link sidebar-title link-nav" href="logout">
+  <a class="sidebar-link sidebar-title link-nav" href="?u=logout">
     <i data-feather="log-out"></i><span>Encerrar (sair)</span></a>
 </li>

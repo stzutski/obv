@@ -15,7 +15,13 @@
           </div>
           <!-- Container-fluid starts-->
           <div class="container-fluid">
+
+          <!-- start card -->
+          <div class="card">            
+
+
             <div class="row starter-main">
+            
              
              <div class="col-sm-12">
                
@@ -33,40 +39,43 @@
                         <th>Ult.Login</th>
                       </tr>
                     </thead>
-                    <tbody>
+<tbody>
+                        <?php
+                          if(!arrayVar($listaAdmins)){
+                            echo '<tr><td colspan="6"><center>NENHUM REGISTRO ENCONTRADO!<center><td></tr>';
+                          }
+                          else
+                          {
+
+                            for ($i=0; $i < count($listaAdmins); $i++)
+                            {
+                              $administradores = '';
+                              $dadosAdmin   = $listaAdmins[$i];
+                              $_dtADMa      = $dadosAdmin['admins'];
+                              $_dtADM       = $_dtADMa[0];
+                              if(is_array($_dtADM) && count($_dtADM)>0)
+                              {
+                                $_liAdmin     = "<ul style=\"margin:0px\"><li><a href=\"modulo/empresas/opt/cadastro/uid/$_dtADM[id_empresa]\">$_dtADM[desc_empresa]</a></li></ul>";  
+                              }else{
+                                $_liAdmin     = 'N/D';
+                              }
+
+                        ?>
+
                       <tr>
-                        <td><a href="modulo/admins/opt/cadastro/1">Fernando de Jesus</a></td>
-                        <td>admin@obavisto.com.br</td>
-                        <td>+55 11 99999-9999</td>
-                        <td><b>MATRIZ</b></td>
-                        <td>06/02/2021</td>
-                        <td>Nunca</td>
+                        <td><a href="modulo/admins/opt/cadastro/uid/<?php echo arrayVar($dadosAdmin,'id_usuario'); ?>"><?php echo arrayVar($dadosAdmin,'nome_usuario'); ?></a></td>
+                        <td><?php echo arrayVar($dadosAdmin,'email_usuario'); ?></td>
+                        <td><?php echo arrayVar($dadosAdmin,'telefone_usuario'); ?></td>
+                        <td><?php echo $_liAdmin;?></td>
+                        <td><?php echo arrayVar($dadosAdmin,'dt_usuario'); ?></td>
+                        <td><?php echo arrayVar($dadosAdmin,'lst_login_usuario'); ?></td>
                       </tr>
-                      <tr>
-                        <td><a href="modulo/admins/opt/cadastro/2">Rebecca Abravanel</a></td>
-                        <td>beca@obavisto.com.br</td>
-                        <td>+55 11 99888-9988</td>
-                        <td>Filial Interlagos</td>
-                        <td>06/02/2021</td>
-                        <td>Nunca</td>
-                      </tr>
-                      <tr>
-                        <td><a href="modulo/admins/opt/cadastro/3">Maximus Decimus Meridius</a></td>
-                        <td>roma1@obavisto.com.br</td>
-                        <td>+39 06 49159999</td>
-                        <td>Desp. Itália</td>
-                        <td>06/02/2021</td>
-                        <td>Nunca</td>
-                      </tr>
-                      <tr>
-                        <td><a href="modulo/admins/opt/cadastro/4">Joseph Robinette (Biden)</a></td>
-                        <td>eua@obavisto.com.br</td>
-                        <td>+1 202-456-1111</td>
-                        <td>White House</td>
-                        <td>20/01/2021</td>
-                        <td>Nunca</td>
-                      </tr>
-                    </tbody>
+
+                        <?php
+                            }
+                          }
+                        ?>
+                      </tbody>
                     <tfoot>
                       <tr>
                         <th>Nome</th>
@@ -80,6 +89,9 @@
                   </table>
                 </div>
               </div>
+              
+              
+              </div> <!--endcard-->
 
 
 

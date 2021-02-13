@@ -4,13 +4,6 @@
     <i data-feather="home"></i><span>Dashboard</span></a>
 </li>
 
-<li class="sidebar-list"><a class="sidebar-link sidebar-title cursor-pointer">
-  <i data-feather="home"></i><span>Empresas</span></a>
-  <ul class="sidebar-submenu">
-    <li><a href="modulo/empresas/opt/lista">Listar</a></li>
-    <li><a href="modulo/empresas/opt/cadastro">Cadastro</a></li>
-  </ul>
-</li>
 
 <li class="sidebar-list"><a class="sidebar-link sidebar-title cursor-pointer"><i
       data-feather="users"></i><span>Administradores</span></a>
@@ -20,7 +13,13 @@
   </ul>
 </li>
 
-
+<li class="sidebar-list"><a class="sidebar-link sidebar-title cursor-pointer">
+  <i data-feather="home"></i><span>Empresas</span></a>
+  <ul class="sidebar-submenu">
+    <li><a href="modulo/empresas/opt/lista">Listar</a></li>
+    <li><a href="modulo/empresas/opt/cadastro">Cadastro</a></li>
+  </ul>
+</li>
 
 <li class="sidebar-list">
   <a class="sidebar-link sidebar-title link-nav" href="modulo/configuracoes/opt/configure">
@@ -52,6 +51,6 @@
 
 
 <li class="sidebar-list">
-  <a class="sidebar-link sidebar-title link-nav" href="do=logout">
+  <a class="sidebar-link sidebar-title link-nav" href="?u=logout">
     <i data-feather="log-out"></i><span>Encerrar (sair)</span></a>
 </li>

@@ -1,0 +1,6 @@
+CSS
+    views/admins/cadastro.php
+        CLASS (boxUpdPwd) para ativar toogle do campo de senhas do admin
+    login.php
+        css msg de erro 
+        css logo login (tamanho)

@@ -15,6 +15,26 @@
   <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
   <title><?php echo TITLEAPP;?></title>
   <!-- Google font-->
+  <style>
+    #loading {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      position: fixed;
+      display: block;
+      opacity: 0.8;
+      background-color: #fff;
+      z-index: 99;
+      text-align: center;
+    }
+
+    #loading-image {
+      position: absolute;
+      top: 50%;
+      z-index: 100;
+    }
+  </style>
   <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap"
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap"
@@ -46,6 +66,10 @@
 </head>
 
 <body class="notransition">
+<div id="loading">
+<img id="loading-image" src="assets/images/Preloader_12.gif" alt="Loading..." />
+</div>
+  
   <!-- tap on top starts-->
   <div class="tap-top"><i data-feather="chevrons-up"></i></div>
   <!-- tap on tap ends-->
@@ -59,7 +83,7 @@
             <div class="Typeahead Typeahead--twitterUsers">
               <div class="u-posRelative">
                 <input class="demo-input Typeahead-input form-control-plaintext w-100" type="text"
-                  placeholder="Search Cuba .." name="q" title="" autofocus>
+                  placeholder="Pesquisar .." name="q" title="" autofocus>
                 <div class="spinner-border Typeahead-spinner" role="status"><span class="sr-only">Loading...</span>
                 </div><i class="close-search" data-feather="x"></i>
               </div>
@@ -78,6 +102,8 @@
         </div>
         <div class="nav-right col-8 pull-right right-header p-0">
           <ul class="nav-menus">
+
+            <!--
             <li> <span class="header-search"><i data-feather="search"></i></span></li>
             <li class="onhover-dropdown">
               <div class="notification-box"><i data-feather="bell"></i><span
@@ -106,9 +132,13 @@
                 <li><a class="btn btn-primary" href="#">Check all notification</a></li>
               </ul>
             </li>
+            -->
             <li>
               <div class="mode"><i class="fa fa-moon-o"></i></div>
             </li>
+            
+            <!--
+            
             <li class="cart-nav onhover-dropdown">
               <div class="cart-box"><i data-feather="shopping-cart"></i><span
                   class="badge badge-pill badge-primary">1</span></div>
@@ -178,6 +208,8 @@
                 <li class="text-center"> <a class="btn btn-primary" href="#">View All </a></li>
               </ul>
             </li>
+            
+            -->
             <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i
                   data-feather="maximize"></i></a></li>
             <li class="profile-nav onhover-dropdown p-0 mr-0">
@@ -192,7 +224,7 @@
                 <!-- <li><i data-feather="file-text"></i><span>Taskboard</span></li>
                   <li><i data-feather="settings"></i><span>Settings</span></li> -->
                 <li><i data-feather="log-in"> </i><span><a href="login">Log in</a></span></li>
-                <li><i data-feather="log-out"> </i><span><a href="logout">Log out</a></span></li>
+                <li><i data-feather="log-out"> </i><span><a href="?u=logout">Log out</a></span></li>
               </ul>
             </li>
           </ul>
@@ -206,7 +238,7 @@
             </div>
           </script>
         <script id="empty-template"
-          type="text/x-handlebars-template"><div class="EmptyMessage">Your search turned up 0 results. This most likely means the backend is down, yikes!</div></script>
+          type="text/x-handlebars-template"><div class="EmptyMessage">A busca retornou: 0 resultados.</div></script>
       </div>
     </div>
     <!-- Page Header Ends                              -->

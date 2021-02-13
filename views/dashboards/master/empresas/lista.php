@@ -17,10 +17,14 @@
           <!-- Container-fluid starts-->
           <div class="container-fluid">
             <div class="row starter-main">
-             
+
              <div class="col-sm-12">
-               
-                       
+
+
+            <!-- start card -->
+            <div class="card">            
+
+
                 <!-- start view content  -->
 
                 <div class="card-body">
@@ -37,38 +41,40 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td><a href="modulo/empresas/opt/cadastro/1">ObaVisto! INC.</a></td>
-                          <td>atendimento@obavisto.com.br</td>
-                          <td>+55 11 99999-9999</td>
-                          <td><a href="obavisto.com.br">obavisto.com.br</a></td>
-                          <td><a href="modulo/admins/opt/cadastro/1">Fernando de Jesus</a></td>
-                          <td>06/02/2021</td>
-                        </tr>
-                        <tr>
-                          <td><a href="modulo/empresas/opt/cadastro/2">Kioski Visto Inter.</a></td>
-                          <td>shopping.inter@obavisto.com.br</td>
-                          <td>+55 11 99988-9988</td>
-                          <td><a haref="obavisto.com.br">interlagos.obavisto.com.br</a></td>
-                          <td><a href="modulo/admins/opt/cadastro/2">Rebecca Abravanel</a></td>
-                          <td>06/02/2021</td>
-                        </tr>
-                        <tr>
-                          <td><a href="modulo/empresas/opt/cadastro/3">Mamma Mia Vistos.</a></td>
-                          <td>fl.roma@obavisto.com.br</td>
-                          <td>+39 06 49159999</td>
-                          <td><a haref="obavisto.com.br">italia.obavisto.com.br</a></td>
-                          <td><a href="modulo/admins/opt/cadastro/3">Maximus Decimus Meridius</a></td>
-                          <td>06/02/2021</td>
-                        </tr>
-                        <tr>
-                          <td><a href="modulo/empresas/opt/cadastro/4">No Fence Visa.</a></td>
-                          <td>fl.usa@obavisto.com.br</td>
-                          <td>+1 202-456-1111</td>
-                          <td><a haref="obavisto.com.br">usa.obavisto.com.br</a></td>
-                          <td><a href="modulo/admins/opt/cadastro/4">Joseph Robinette (Biden)</a></td>
-                          <td>06/02/2021</td>
-                        </tr>
+                        <?php
+                          if(!arrayVar($listaEmpresas)){
+                          echo '<tr><td colspan="6"><center>NENHUM REGISTRO ENCONTRADO!<center><td></tr>';
+                          }
+                          else
+                          {// code...}
+
+                            for ($i=0; $i < count($listaEmpresas); $i++)
+                            {
+                              $administradores = '';
+                              $dadosEmpresa = $listaEmpresas[$i];
+                              $_dtADMa      = $dadosEmpresa['admins'];
+                              $_dtADM       = $_dtADMa[0];
+                              if(is_array($_dtADM) && count($_dtADM)>0)
+                              {
+                                $_liAdmin     = "<ul style=\"margin:0px\"><li><a href=\"modulo/admins/opt/cadastro/uid/$_dtADM[id_usuario]\">$_dtADM[nome_usuario]</a></li></ul>";  
+                              }else{
+                                $_liAdmin     = 'N/D';
+                              }
+
+                        ?>
+                            <tr>
+                            <td><a href="modulo/empresas/opt/cadastro/uid/<?php echo arrayVar($dadosEmpresa,'id_empresa'); ?>"><?php echo arrayVar($dadosEmpresa,'fantasia_empresa'); ?></a></td>
+                            <td><?php echo arrayVar($dadosEmpresa,'email_empresa'); ?></td>
+                            <td><?php echo arrayVar($dadosEmpresa,'telco_empresa'); ?></td>
+                            <td><a href="obavisto.com.br"><?php echo arrayVar($dadosEmpresa,'website_empresa'); ?></a></td>
+                            <td style="padding:0px;"><?php echo $_liAdmin;?></td>
+                            <td>06/02/2021</td>
+                            </tr>
+
+                        <?php
+                            }
+                          }
+                        ?>
                       </tbody>
                       <tfoot>
                         <tr>
@@ -83,6 +89,8 @@
                     </table>
                 </div>
                 </div>
+                
+                </div><!--endCard-->
 
 
                 <!-- end view content  -->
@@ -90,9 +98,9 @@
 
 
             </div>
-             
-             
-             
+
+
+
             </div>
           </div>
           <!-- Container-fluid Ends-->

@@ -1,14 +1,14 @@
 <?php
 
 use \php\classes\DB\ProcSql;
-use \php\classes\master\Empresas;
+use \php\classes\master\Admins;
 
 
 //pagina com os dados do cadastro da empresa
 if(getVar('uid')!=''){
 
-	$empresa = new Empresas();
-	$res = $empresa->getItemById('empresas',array('id_empresa',getVar('uid')));
+	$admins = new Admins();
+	$res = $admins->getItemById('usuarios',array('id_usuario',getVar('uid')));
 	if(count($res)>0){
 		$_formData = $res[0];
 	}else{
@@ -19,12 +19,12 @@ if(getVar('uid')!=''){
 //pagina com a tabela de empresas cadastradas
 if(getVar('opt')=='lista'){
 
-	$empresa 				= new Empresas();
-	$res 						= $empresa->listaEmpresas();
-	$listaEmpresas 	= $res;
+	$admins 				= new Admins();
+	$res 						= $admins->listaAdmins();
+	$listaAdmins 	  = $res;
+
 
 }
-
 
 
 

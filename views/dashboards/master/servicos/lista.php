@@ -6,22 +6,27 @@
                   <h3>USUÁRIO MASTER</h3>
                   <span>
                     Gateways de Pagamento os sistemas responsáveis pelo receber pagamentos online em cartão, transferência ou
-                    boleto. 
+                    boleto.
                     <b>NOTA:</b> Não é possível adicionar novos gateways de pagamento através deste painel de administração, entretanto é
                     possível alterar as configurações já existentes.<br />
                   </span>
                   <h6 class="font-primary"><small>* Para alterar / visualizar um cadastro clique sobre o nome do Gateway.</small></h6>
-                          
+
                 </div>
               </div>
             </div>
           </div>
           <!-- Container-fluid starts-->
           <div class="container-fluid">
+            
+
+          <!-- start card -->
+          <div class="card">                
+            
             <div class="row starter-main">
-             
+
              <div class="col-sm-12">
-                         
+
                 <!-- start view content  -->
 
                 <div class="card-body">
@@ -37,27 +42,30 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td><a href="modulo/servicos/opt/cadastro/uid/1">VISTO B-2 USA</a></td>
-                          <td>Assessoria emissão visto B-2 USA</td>
-                          <td>Individual</td>
-                          <td>R$ 585,00</td>
-                          <td>Disponível</td>
-                        </tr>
-                        <tr>
-                          <td><a href="modulo/servicos/opt/cadastro/uid/1">VISTO B-2 USA</a></td>
-                          <td>Assessoria emissão visto B-2 USA</td>
-                          <td>2 ~ 5 pessoas</td>
-                          <td>R$ 350,00 p/pessoa</td>
-                          <td>Disponível</td>
-                        </tr>
-                        <tr>
-                          <td><a href="modulo/servicos/opt/cadastro/uid/1">VISTO E-1 USA</a></td>
-                          <td>Assessoria emissão visto E-1 USA</td>
-                          <td>Individual</td>
-                          <td>R$ 1.080,00</td>
-                          <td>Disponível</td>
-                        </tr>
+                        <?php
+                          if(!arrayVar($listaServicos)){
+                          echo '<tr><td colspan="6"><center>NENHUM REGISTRO ENCONTRADO!<center><td></tr>';
+                          }
+                          else
+                          {// code...}
+
+                            for ($i=0; $i < count($listaServicos); $i++)
+                            {
+                              $dadosDoServico = $listaServicos[$i];
+                        ?>
+
+                            <tr>
+                              <td><a href="modulo/servicos/opt/cadastro/uid/<?php echo arrayVar($dadosDoServico,'id_servico'); ?>"><?php echo arrayVar($dadosDoServico,'nome_servico'); ?></a></td>
+                              <td><?php echo arrayVar($dadosDoServico,'nome_servico'); ?></td>
+                              <td><?php echo arrayVar($dadosDoServico,'nomeplano_servico'); ?></td>
+                              <td><?php echo arrayVar($dadosDoServico,'valor_servico'); ?></td>
+                              <td><?php echo arrayVar($dadosDoServico,'status_servico'); ?></td>
+                            </tr>
+
+                        <?php
+                            }
+                          }
+                        ?>
                       </tbody>
                       <tfoot>
                         <tr>
@@ -71,6 +79,8 @@
                     </table>
                   </div>
                 </div>
+                
+                </div><!--endRow-->
 
 
                 <!-- end view content  -->
@@ -78,9 +88,9 @@
 
 
             </div>
-             
-             
-             
+
+
+
             </div>
           </div>
           <!-- Container-fluid Ends-->

@@ -15,6 +15,11 @@
           </div>
           <!-- Container-fluid starts-->
           <div class="container-fluid">
+            
+            
+          <!-- start card -->
+          <div class="card">    
+            
             <div class="row starter-main">
              
              <div class="col-sm-12">
@@ -91,6 +96,8 @@
 
 
             </div>
+            
+            </div><!--endCard-->
              
              
              

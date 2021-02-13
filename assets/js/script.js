@@ -23,9 +23,13 @@
     $('.show-hide span').click(function () {
         if ($(this).hasClass('show')) {
             $('input[name="login[password]"]').attr('type', 'text');
+            $('input[name="register[password]"]').attr('type', 'text');
+            $('input[name="register[passwordcnf]"]').attr('type', 'text');
             $(this).removeClass('show');
         } else {
             $('input[name="login[password]"]').attr('type', 'password');
+            $('input[name="register[password]"]').attr('type', 'password');
+            $('input[name="register[passwordcnf]"]').attr('type', 'password');
             $(this).addClass('show');
         }
     });
