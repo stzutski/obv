@@ -2,8 +2,7 @@
 //header page
 require_once('configs.php');
 
-
-if(getVar('consulta')=='cidades'){
+if(getVar('consulta')=='cidades' || getVar('user')=='registration'){
 
 require_once('ajx.php');
 

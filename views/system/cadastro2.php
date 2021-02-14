@@ -70,7 +70,7 @@
                 
                 
              
-                <form class="theme-form hideThis" method="POST" action="<?php echo URLAPP . 'user/register'?>">
+                <form class="theme-form hideThis" id="userRegistration" method="POST" action="<?php echo URLAPP . 'user/register'?>">
                   <div id="step-1" class="form-card">
                       <h4>Seus dados</h4>
                       <p>Informe seu dados para criar sua conta</p>
@@ -78,16 +78,16 @@
                         <label class="col-form-label pt-0">Seu Nome</label>
                         <div class="form-row">
                           <div class="col-6">
-                            <input class="form-control" type="text" onkeyup="chkCampo(this,4);" id="userNome" name="register[nome_usuario]" required="" placeholder="Nome">
+                            <input class="form-control" type="text" id="userNome" name="register[nome_usuario]" required="" placeholder="Nome">
                           </div>
                           <div class="col-6">
-                            <input class="form-control" type="text" onkeyup="chkCampo(this,4);" id="userSobrenome" name="register[sobrenome_usuario]" required="" placeholder="Sobrenome">
+                            <input class="form-control" type="text" id="userSobrenome" name="register[sobrenome_usuario]" required="" placeholder="Sobrenome">
                           </div>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-form-label">CPF</label>
-                        <input <?php echo jsMask('cpf',14);?>  onblur="chkCpf(this);" class="form-control" id="userCpf" type="text" name="register[cpf]" required="" placeholder="999.999.999-99">
+                        <input <?php echo jsMask('cpf',14);?>  class="form-control" id="userCpf" type="text" name="register[cpf]" required="">
                       </div>
                       <div class="form-group">
                         <label class="col-form-label">Dt. Nascimento</label>
@@ -95,7 +95,7 @@
                       </div>
                       <div class="form-group">
                         <label class="col-form-label">Endereço de e-mail</label>
-                        <input class="form-control" id="userEmail" type="email" name="register[email_usuario]" required="" placeholder="seu@email.com">
+                        <input class="form-control" id="userEmail" type="email" name="register[email_usuario]" required="">
                       </div>
                       <div class="form-group">
                         <div class="form-row">
@@ -173,13 +173,13 @@
                             </select>                          
                       </div>
                       <div class="form-group">
-                        <label class="col-form-label">Senha <small>(Min 6, máx 10 caracteres) <span id="password_strength">Senha insegura.</span></small> </label>
+                        <label class="col-form-label">Senha <small>(Min 6, máx 15 caracteres) <span id="password_strength"></span></small> </label>
                         <input maxlength="10" class="form-control" type="password" id="clipwd" name="register[password]" required="" onkeyup="CheckPasswordStrength(this.value)">
                         <div class="show-hide"><span class="show"></span></div>
                       </div>
                       <div class="form-group">
                         <label class="col-form-label">Confirme a senha <small><span class="cnf-pwdfield-msg"></span></small></label>
-                        <input maxlength="10" class="form-control" type="password" id="clipwdcnf" name="register[passwordcnf]" required="">
+                        <input maxlength="15" class="form-control" type="password" id="clipwdcnf" name="register[passwordcnf]" required="">
                         <div class="show-hide"><span class="show"></span></div>
                       </div>
                       
@@ -200,27 +200,25 @@
                 
                 
                   <div id="step-3" class="form-card" style="display:none">
-                      <h4>Confirme seus Dados</h4>
-                      <p>Informe seu dados para criar sua conta</p>
+                      <h4>Confira seus Dados</h4>
+                      <p>Informe seu dados para criar sua conta
+                      <br /><small style="color:red;">Erros encontrados, volte e corrija as informações em destaque</small></p>
                       
                       <div class="form-group mb-0">
-                      <p><b>Nome:</b> <span id="rv_nome"></span><br/ >
+                      <p><b>Nome Completo:</b> <span id="rv_nome"></span><br/ >
                       <b>CPF:</b> <span id="rv_cpf"></span><br/ >
                       <b>Nascimento:</b> <span id="rv_nasc"></span><br/ >
                       <b>E-mail:</b> <span id="rv_email"></span><br/ >
                       <b>Localização:</b> <span id="rv_local"></span><br/ >
-                      <b>Referência:</b> <span id="rv_ref"></span><br/ >
-                      <b>Senha:</b> *****</p>
-                      </div>
-                      
-                      <div class="form-group mb-0">
-                      <p>Clique no campo abaixo para declarar que você esta de acordo com nossas políticas e termos do serviço.</p>
+                      <b>Como nos conheçeu:</b> <span id="rv_ref"></span><br/ >
+                      <b>Senha:</b> <span id="rv_pwd"></span><br/ >
                       </div>
                       
                       <div class="form-group mb-0">
                         <div class="checkbox p-0">
+                          <p>Concorde com os termos para prosseguir.</p>
                           <input id="checkbox1" type="checkbox">
-                          <label class="text-muted" for="checkbox1">Concordo: <a class="ml-2" href="<?php echo URLAPP . 'politicas.pdf'?>" target="_politicas">Política de Privacidade</a></label>
+                          <label class="text-muted" name="register[termos]" for="checkbox1">Concordo: <a class="ml-2" href="<?php echo URLAPP . 'politicas.pdf'?>" target="_politicas">Política de Privacidade</a></label>
                         </div>
                       </div>
                       
@@ -231,7 +229,7 @@
                             <button class="btn btn-primary btn-block bt-next" data-from="step-3" data-go="step-2" type="button">RETORNAR</button>
                           </div>
                           <div class="col-6">
-                            <button class="btn btn-primary btn-block" data-from="step-1" data-go="step-2" type="button">FINALIZAR</button>
+                            <button class="btn btn-primary btn-block" id="btSubmit" data-from="step-1" data-go="step-2" disabled="" type="button">FINALIZAR</button>
                           </div>
                         </div>
                       </div>                      

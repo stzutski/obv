@@ -27,16 +27,7 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=4
-FILE_NAME_0=630;PHP;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fajx.php;0;2
-FILE_NAME_1=806;PHP;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fconfigs.php;0;2
-FILE_NAME_2=330;PHP;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fphp%2Ffunctions%2Ffunctions.php;0;2
-FILE_NAME_3=5300;PHP;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fviews%2Fsystem%2Fcadastro2.php;0;2
-FILE_NAME_4=4865;Javascript;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fassets%2Fjs%2Fsigup.scripts.js;0;2
-FILE_NAME_5=2876;PHP;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fphp%2Ffunctions%2Ffunctions.html.php;0;2
-FILE_NAME_6=11501;Javascript;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fassets%2Fjs%2Fscript.js;0;2
-FILE_NAME_7=5645;PHP;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fviews%2Fdashboards%2Fmaster%2Fadmins%2Fcadastro.php;0;2
-FILE_NAME_8=2218;Javascript;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fassets%2Fjs%2Fscript-acto.js;0;2
+current_page=-1
 
 [VTE]
 last_dir=/home/robertors
