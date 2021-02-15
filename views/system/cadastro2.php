@@ -70,7 +70,7 @@
                 
                 
              
-                <form class="theme-form hideThis" id="userRegistration" method="POST" action="<?php echo URLAPP . 'user/register'?>">
+                <form class="theme-form hideThis" id="userRegistration" method="POST" action="<?php echo URLAPP . 'user/registration/new/user'?>">
                   <div id="step-1" class="form-card">
                       <h4>Seus dados</h4>
                       <p>Informe seu dados para criar sua conta</p>
@@ -78,29 +78,29 @@
                         <label class="col-form-label pt-0">Seu Nome</label>
                         <div class="form-row">
                           <div class="col-6">
-                            <input class="form-control" type="text" id="userNome" name="register[nome_usuario]" required="" placeholder="Nome">
+                            <input onfocus="validaCard(1)" class="form-control b-alert" type="text" id="userNome" name="register[nome_usuario]" required="" placeholder="Nome">
                           </div>
                           <div class="col-6">
-                            <input class="form-control" type="text" id="userSobrenome" name="register[sobrenome_usuario]" required="" placeholder="Sobrenome">
+                            <input onfocus="validaCard(1)" class="form-control b-alert" type="text" id="userSobrenome" name="register[sobrenome_usuario]" required="" placeholder="Sobrenome">
                           </div>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-form-label">CPF</label>
-                        <input <?php echo jsMask('cpf',14);?>  class="form-control" id="userCpf" type="text" name="register[cpf]" required="">
+                        <input onfocus="validaCard(1)" <?php echo jsMask('cpf',14);?>  class="form-control b-alert" id="userCpf" type="text" name="register[cpf]" required="">
                       </div>
                       <div class="form-group">
                         <label class="col-form-label">Dt. Nascimento</label>
-                        <input name="register[nascimento]" class="datepicker-here form-control" id="userNasc" type="text" data-language="br" data-multiple-dates-separator=", " data-position="top left" placeholder="00/00/0000" onKeyDown="Mascara(this,Data);" onKeyPress="Mascara(this,Data);" onKeyUp="Mascara(this,Data);">
+                        <input onfocus="validaCard(1)"name="register[nascimento]" class="datepicker-here form-control b-alert" id="userNasc" type="text" data-language="br" data-multiple-dates-separator=", " data-position="top left" placeholder="00/00/0000" onKeyDown="Mascara(this,Data);" onKeyPress="Mascara(this,Data);" onKeyUp="Mascara(this,Data);">
                       </div>
                       <div class="form-group">
                         <label class="col-form-label">Endereço de e-mail</label>
-                        <input class="form-control" id="userEmail" type="email" name="register[email_usuario]" required="">
+                        <input onfocus="validaCard(1)" class="form-control b-alert" id="userEmail" type="email" name="register[email_usuario]" required="">
                       </div>
                       <div class="form-group">
                         <div class="form-row">
                           <div class="col-12">
-                            <button class="btn btn-primary btn-block bt-next" id="btNext1" data-from="step-1" data-go="step-2" type="button">AVANÇAR</button>
+                            <button onMouseOver="validaCard(1)" class="btn btn-primary btn-block bt-next" id="btNext1" data-from="step-1" data-go="step-2" disabled="" type="button">AVANÇAR</button>
                           </div>
                         </div>
                       </div>  
@@ -119,7 +119,7 @@
                         <div class="form-row">
                           <div class="col-6">
                             <?php $var_uf='';?>
-                            <select id="ufCli" name="register[uf]" class="form-control">
+                            <select onchange="validaCard(2)" id="ufCli" name="register[uf]" class="form-control b-alert">
                             <option value="">Selecione</option>
                             <option value="AC">Acre</option>
                             <option value="AL">Alagoas</option>
@@ -151,7 +151,7 @@
                             </select>                            
                           </div>
                           <div class="col-6">
-                            <select id="cidadeCli" name="register[cidade]" class="form-control">
+                            <select onchange="validaCard(2)" id="cidadeCli" name="register[cidade]" class="form-control b-alert">
                             <option value="">Selecione o Estado</option>
                             </select> 
                              
@@ -160,7 +160,7 @@
                       </div>
                       <div class="form-group">
                         <label class="col-form-label">Como nos conheceu?</label>
-                            <select id="userFrom" name="register[referencia]" class="form-control">
+                            <select onchange="validaCard(2)" id="userFrom" name="register[referencia]" class="form-control b-alert">
                             <option value="">Selecione</option>
                             <option value="google">Google</option>
                             <option value="indicacao">Indicação de Amigo</option>
@@ -174,12 +174,12 @@
                       </div>
                       <div class="form-group">
                         <label class="col-form-label">Senha <small>(Min 6, máx 15 caracteres) <span id="password_strength"></span></small> </label>
-                        <input maxlength="10" class="form-control" type="password" id="clipwd" name="register[password]" required="" onkeyup="CheckPasswordStrength(this.value)">
+                        <input onblur="validaCard(2)" maxlength="15" class="form-control b-alert" type="password" id="clipwd" name="register[password]" required="" onkeyup="CheckPasswordStrength(this.value)">
                         <div class="show-hide"><span class="show"></span></div>
                       </div>
                       <div class="form-group">
                         <label class="col-form-label">Confirme a senha <small><span class="cnf-pwdfield-msg"></span></small></label>
-                        <input maxlength="15" class="form-control" type="password" id="clipwdcnf" name="register[passwordcnf]" required="">
+                        <input onblur="validaCard(2)" maxlength="15" class="form-control b-alert" type="password" id="clipwdcnf" name="register[passwordcnf]" required="">
                         <div class="show-hide"><span class="show"></span></div>
                       </div>
                       
@@ -190,7 +190,7 @@
                             <button class="btn btn-primary btn-block bt-next" data-from="step-2" data-go="step-1" type="button">RETORNAR</button>
                           </div>
                           <div class="col-6">
-                            <button class="btn btn-primary btn-block bt-next" data-from="step-2" data-go="step-3" type="button">AVANÇAR</button>
+                            <button onMouseOver="validaCard(2)" class="btn btn-primary btn-block bt-next" id="btNext2" disabled="" data-from="step-2" data-go="step-3" type="button">AVANÇAR</button>
                           </div>
                         </div>
                       </div>                      
@@ -202,13 +202,14 @@
                   <div id="step-3" class="form-card" style="display:none">
                       <h4>Confira seus Dados</h4>
                       <p>Informe seu dados para criar sua conta
-                      <br /><small style="color:red;">Erros encontrados, volte e corrija as informações em destaque</small></p>
+                      <br />
+                      <small id="notificaErros" style="color:red;display:none;">Oops! Volte e corrija as informações em destaque</small></p>
                       
                       <div class="form-group mb-0">
                       <p><b>Nome Completo:</b> <span id="rv_nome"></span><br/ >
                       <b>CPF:</b> <span id="rv_cpf"></span><br/ >
                       <b>Nascimento:</b> <span id="rv_nasc"></span><br/ >
-                      <b>E-mail:</b> <span id="rv_email"></span><br/ >
+                      <b>E-mail:</b> <span id="rv_email">valor</span><br/ >
                       <b>Localização:</b> <span id="rv_local"></span><br/ >
                       <b>Como nos conheçeu:</b> <span id="rv_ref"></span><br/ >
                       <b>Senha:</b> <span id="rv_pwd"></span><br/ >
@@ -217,7 +218,7 @@
                       <div class="form-group mb-0">
                         <div class="checkbox p-0">
                           <p>Concorde com os termos para prosseguir.</p>
-                          <input id="checkbox1" type="checkbox">
+                          <input id="checkbox1" name="aceitaTermos" value="SIM" type="checkbox">
                           <label class="text-muted" name="register[termos]" for="checkbox1">Concordo: <a class="ml-2" href="<?php echo URLAPP . 'politicas.pdf'?>" target="_politicas">Política de Privacidade</a></label>
                         </div>
                       </div>
@@ -237,7 +238,8 @@
                       <p class="mt-4 mb-0">Já cadastrado?<a class="ml-2" href="<?php echo URLAPP . 'user/login'?>">Acessar</a></p>
                   </div>
                 
-                
+                <input type="hidden" id="cherr" />                
+                <input type="hidden" id="rv_ckmail" />                
                 </form>
               
               

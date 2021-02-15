@@ -1,7 +1,7 @@
 <?php 
 //rotinas em ajax
 
-//cadastro de usuario via formulario ajax
+//rotinas de cadastro do usuario
 if(getVar('user')=='registration'){
   include_once('models/ajax.registration.model.php');
   exit;
