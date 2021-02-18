@@ -24,7 +24,16 @@ if(!sessionVar('usersys')){//caso operacoes login logout
         require_once('views/system/login.php');
       }
       if(getVar('user')=='new'){
-        require_once('views/system/cadastro2.php');
+        require_once('views/system/cadastro-form-wizzard.php');
+      }
+      if(getVar('user')=='confirm'){ /*  ?user=confirm&code= */
+        require_once('views/system/cadastro-confirmation.php');
+      }
+      if(getVar('user')=='activation'){ /*  ?user=activation&code=  */
+        
+        require_once('models/user-activation.model.php');
+        require_once('views/system/cadastro-confirmation.php');
+        //echo 'eita';
       }
     
     

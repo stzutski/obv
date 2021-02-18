@@ -1,0 +1,18 @@
+dados recebidos email:rstzutski@gmail.com chave: f10a5e7bc4b4b79507d1ff36cdd8744d
+cadastro localizado! [1] - id(71)
+Usuário NÃO esta ativo... vamos ativar?
+dados recebidos email:rstzutski@gmail.com chave: f10a5e7bc4b4b79507d1ff36cdd8744d
+cadastro localizado! [1] - id(71)
+Usuário NÃO esta ativo... vamos ativar?
+Usuário ativado com sucesso
+dados recebidos email:rstzutski@gmail.com chave: f10a5e7bc4b4b79507d1ff36cdd8744d
+cadastro localizado! [1] - id(71)
+Este usuário JÁ ESTA ATIVO
+É so mandar fazer o login!
+dados recebidos email:rstzutski@gmail.com chave: f10a5e7bc4b4b79507d1ff36cdd8744d
+cadastro localizado! [1] - id(71)
+Usuário NÃO esta ativo... vamos ativar?
+dados recebidos email:rstzutski@gmail.com chave: f10a5e7bc4b4b79507d1ff36cdd8744d
+cadastro localizado! [1] - id(71)
+Usuário NÃO esta ativo... vamos ativar?
+Usuário ativado com sucesso

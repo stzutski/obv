@@ -361,7 +361,7 @@ $(document).ready(function () {
               data: dataForm,
               dataType: "html",
               success: function(data) {
-                   alert(data);
+                  eval(data);
                 }
             });            
             

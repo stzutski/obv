@@ -55,6 +55,7 @@ class Sql {
 		if ($eMsg[1]>1) {
 		  return $eMsg;
 		}else{
+      
       //se rotina de INSERT então retornar o last ID
 			if(strstr(strtoupper($rawQuery),"INSERT")){
 				return $lstId;
@@ -64,13 +65,6 @@ class Sql {
 			}
 
 		}
-
-
-		//var_dump();
-		//exit;
-		// $this->conn->commit();
-		//
-
 
 	}
 
@@ -88,6 +82,8 @@ class Sql {
 		}
 
 	}
+
+
 
 }
 
