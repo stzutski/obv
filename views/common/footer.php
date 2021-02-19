@@ -28,13 +28,29 @@
     <script src="assets/js/datatable/datatables/datatable.custom.js"></script>
     <script src="assets/js/form-validation-custom.js"></script>
     <script src="assets/js/masks.js"></script>
+    <script src="assets/js/modal-animated.js"></script>
     <!-- <script src="assets/js/custom-card/custom-card.js"></script> -->
     <script src="assets/js/tooltip-init.js"></script>
     <script src="assets/alertify/alertify.min.js"></script>
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="assets/js/script.js"></script>
-    <script src="assets/js/script-acto.js"></script>
+    <?php 
+    if(USERLEVEL=='master'){
+      echo '<script src="assets/js/script-acto.js"></script>';
+    }
+    elseif(USERLEVEL=='admin'){
+      echo '<script src="assets/js/script-admin.js"></script>';
+    }
+    elseif(USERLEVEL=='cliente'){
+      echo '<script src="assets/js/counter/jquery.waypoints.min.js"></script>';
+      echo '<script src="assets/js/counter/jquery.counterup.min.js"></script>';
+      echo '<script src="assets/js/cliente.js"></script>';
+    }
+    else{
+      echo '<script src="assets/js/cliente.js"></script>';
+    }
+    ?>
     <!-- login js-->
     <!-- Plugin used-->
     <?php 

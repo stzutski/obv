@@ -63,6 +63,21 @@
   <link id="color" rel="stylesheet" href="assets/css/color-1.css" media="screen">
   <!-- Responsive css-->
   <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+  <?php 
+  if(USERLEVEL=='master'){
+    echo '<link rel="stylesheet" type="text/css" href="assets/css/dashboard-master.css">';
+  }
+  elseif(USERLEVEL=='admin'){
+    echo '<link rel="stylesheet" type="text/css" href="assets/css/dashboard-admin.css">';
+  }
+  elseif(USERLEVEL=='cliente'){
+    echo '<link rel="stylesheet" type="text/css" href="assets/css/dashboard-admin.css">';
+    echo '<link rel="stylesheet" type="text/css" href="assets/css/vendors/owlcarousel.css">';
+  }
+  else{
+    
+  }?>
+  <link rel="stylesheet" type="text/css" href="assets/css/global-css.css">
 </head>
 
 <body class="notransition">
