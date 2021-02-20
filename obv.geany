@@ -27,25 +27,7 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=7
-FILE_NAME_0=5672;PHP;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fphp%2Ffunctions%2Ffunctions.php;0;2
-FILE_NAME_1=4912;PHP;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fphp%2Fclasses%2Fsite%2FCadUserCli.php;0;2
-FILE_NAME_2=1561;PHP;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fphp%2Fclasses%2FDB%2FSql.php;0;2
-FILE_NAME_3=421;PHP;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fconfigs.php;0;2
-FILE_NAME_4=332;PHP;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Findex.php;0;2
-FILE_NAME_5=6024;PHP;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fviews%2Fsystem%2Fcadastro-confirmation.php;0;2
-FILE_NAME_6=1892;PHP;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fmodels%2Fuser-activation.model.php;0;2
-FILE_NAME_7=0;None;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fsys.log.txt;0;2
-FILE_NAME_8=8352;PHP;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fviews%2Fdashboards%2Fcliente%2Fdashboard-cliente.php;0;2
-FILE_NAME_9=2145;PHP;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fviews%2Fcommon%2Fheader.php;0;2
-FILE_NAME_10=1;CSS;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fassets%2Fcss%2Fglobal-css.css;0;2
-FILE_NAME_11=1517;PHP;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fviews%2Fcommon%2Ffooter.php;0;2
-FILE_NAME_12=253;Javascript;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fassets%2Fjs%2Fcliente.js;0;2
-FILE_NAME_13=66;Javascript;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fassets%2Fjs%2Fscript-acto.js;0;2
-FILE_NAME_14=62955;HTML;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Ff-system%2Ftheme%2Fpricing.html;0;2
-FILE_NAME_15=377;CSS;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Fobv%2Fassets%2Fcss%2Fdashboard-cliente.css;0;2
-FILE_NAME_16=412;PHP;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Ftools%2Fstep.php;0;2
-FILE_NAME_17=137;CSS;0;EUTF-8;0;1;0;%2Fvar%2Fwww%2Fhtml%2Flabs%2Ftools%2Fsteps.css;0;2
+current_page=-1
 
 [VTE]
 last_dir=/home/robertors

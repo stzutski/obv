@@ -6,7 +6,6 @@
               <div class="col-md-12 footer-copyright">
                 <p class="mb-0">Copyright 2020 © obavisto.com.br.</p>
               </div>
-
             </div>
           </div>
         </footer>

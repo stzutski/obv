@@ -33,11 +33,16 @@ if(!sessionVar('usersys')){//caso operacoes login logout
         
         require_once('models/user-activation.model.php');
         require_once('views/system/cadastro-confirmation.php');
-        //echo 'eita';
       }
+      if(getVar('user')=='new-pwd'){ /*  ?user=activation&code=  */
+        
+        require_once('models/user-passRecovery.model.php');
+        require_once('views/system/lost-password.php');
+      }        
+
     
     
-    }else{//em caso POST pode ser login ou cadastro
+    }else{//em caso POST pode ser login ou cadastro ou recuperacao de senha
       
       
       if(getVar('user')=='auth'){//rotinas de login
@@ -51,6 +56,11 @@ if(!sessionVar('usersys')){//caso operacoes login logout
         echo "<h1>Processando cadastro de usuário</h1>";
         
       }
+      if(getVar('user')=='new-pwd'){ /*  ?user=activation&code=  */
+        
+        require_once('models/user-passRecovery.model.php');
+        require_once('views/system/lost-password.php');
+      }      
       
     }
     

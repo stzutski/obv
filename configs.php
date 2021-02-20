@@ -22,6 +22,7 @@ define('TITLEAPP','Oba Visto!');
 define('USERLEVEL',$u_level);
 define('USEDASHBOARD',$u_level);
 define('UIDEMPRESA',1);
+define('MAILSUPORTE','suporte@obavisto.com.br');
 $_formData = array();
 $_erroForm = array();
 
