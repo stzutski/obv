@@ -100,7 +100,7 @@ function _sf($campo=''){
 
 
 
-//FUNCAO PARA GERAR SENHA
+//FUNCAO PARA ENCRIPTAR SENHA
 function mkpwd($str){
  $str = base64_encode($str.'obav');
  $str = md5($str);
@@ -214,7 +214,7 @@ function ValidaData($data){
 
 //funcao para validar email
 function validaEmail($email=''){
-  
+
   if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
       return true;
   }else{
@@ -272,7 +272,7 @@ $args['mailvars'] = array('nomeUsuario'=>'fulano de tal','emailUsuario'=>'ze@ze.
 sndMail($args);
 */
 
-
+//FUNCAO CONFIGURAR O TEMPLATE DO EMAIL (DEVERÁ SER REMOVIDA TROCADA POR UMA CLASSE)
 function mailPrepare($args=array()){
   
   $msgemail = '';
@@ -312,7 +312,7 @@ function mailPrepare($args=array()){
 
 
 
-
+//FUNCAO PARA ENVIAR EMAIL (DEVERÁ SER REMOVIDA TROCADA POR UMA CLASSE)
 function sndMail($args=array()){
   
 
@@ -349,6 +349,17 @@ function sndMail($args=array()){
     return false;
   }
 
+}
+
+
+//funcao para gerar senhas temporarias com 8 caracteres (POR PADRÃO)
+function genPwd($intsize=8){
+  //DETERMINA OS CARACTERES QUE CONTERÃO A SENHA
+  $caracteres = "0123456789abcdefghijklmnopqrstuvwxyz+-/()";
+  //EMBARALHA OS CARACTERES E PEGA APENAS OS 10 PRIMEIROS
+  $mistura = substr(str_shuffle($caracteres),0,$intsize);
+  //EXIBE O RESULTADO
+  return $mistura;
 }
 
 ?>

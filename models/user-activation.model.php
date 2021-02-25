@@ -6,24 +6,22 @@ use \php\classes\DB\Sql;
 $userKey  = getVar('code');
 $userMail = getVar('mail');
 
-logsys("dados recebidos email:$userMail chave: $userKey");
+logsys("dados recebidos chave: $userKey");
 
 //consulta no banco
 $_activation = new Sql();
 
 $res = $_activation->select('SELECT * FROM usuarios 
-                            WHERE 
-                            email_usuario = :email_usuario AND
-                            cod_ativacao_usuario = :cod_ativacao_usuario',array(
-                            ':email_usuario'=>$userMail,
+                            WHERE cod_ativacao_usuario = :cod_ativacao_usuario',array(
                             ':cod_ativacao_usuario'=>$userKey));
 
 
 
 if(count($res)==0){//NENHUM CADASTRO LOCALIZADO (CHAVE OU EMAIL ERRADO)
+  
   logsys("nenhum cadastro localizado");
-  $_statusCad = false;//sinaliza como inativo
-  $_errMessage= 'Não foi possível ativar este cadastro!<br /><br />Certifique do link estar correto.<br /><br />Caso necessário clique aqui para solicitar um <a href="#">novo link de ativação</a>';
+  $_statusCad = 0;//sinaliza como inativo
+  $_errMessage= 'Não foi possível ativar este cadastro!<br /><br />Certifique do link estar correto.<br /><br /><a href="#">Clique aqui</a> para solicitar um novo link de ativação';
   
 }
 elseif(count($res)==1)
@@ -38,7 +36,7 @@ elseif(count($res)==1)
 
       logsys("Este usuário JÁ ESTA ATIVO");
       logsys("É so mandar fazer o login!");
-      $_statusCad = true;//sinaliza como já ativo
+      $_statusCad = 2;//sinaliza como já ativo
 
     }
 
@@ -54,15 +52,15 @@ elseif(count($res)==1)
                                         
                                         
       if($res_activa==1){//CASO RETORNE 1 LINHA AFETADA
-      logsys("Usuário ativado com sucesso");
-      $_statusCad = true;//sinaliza como já ativo
+        logsys("Usuário ativado com sucesso");
+        $_statusCad = 2;//sinaliza como já ativo
         
       }
       else//CASO CONTRARIO OCORREU ALGUM ERRO
       {
-        $_statusCad = false;//sinaliza como inativo
-        $_errMessage= 'Não foi possível ativar este cadastro!<br /><br />Certifique do link estar correto.<br /><br />Caso necessário clique aqui para solicitar um <a href="#">novo link de ativação</a>';
-      }                                        
+        $_statusCad = 0;//sinaliza como inativo
+      }     
+      logsys("Status $ _statusCad($_statusCad) ");                                   
       
     }
 

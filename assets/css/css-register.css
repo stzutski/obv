@@ -52,3 +52,13 @@
 .wizzResult{
   display:none;
 }
+#box_notifyRsnd{
+  padding:10px;
+  background:#F8F9FE;
+  font-size:11pt;
+  color:#333;
+  text-align:justify;
+  border:1px #ccc solid;
+  border-radius: 8px;
+  display:none;
+}

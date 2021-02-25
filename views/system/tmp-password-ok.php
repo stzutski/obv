@@ -10,7 +10,7 @@
     <base href="<?php echo URLAPP;?> - Recuperar Senha de Acesso">
     <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-    <title><?php echo TITLEAPP;?> - Recuperar Senha de Acesso</title>
+    <title><?php echo TITLEAPP;?> - Senha Recuperada dom Sucesso</title>
     <!-- Google font-->
     <style>
       #loading {
@@ -66,67 +66,45 @@
           <div class="login-card">
             <div>
               <div><a class="logo" href="<?php echo URLAPP;?>"><img class="img-fluid for-light" style="max-width:160px;height:auto;" src="assets/images/logo/logo-login.png" alt="looginpage"><img class="img-fluid for-dark" src="assets/images/logo/logo_dark.png" alt="looginpage"></a></div>
-              <div class="login-main">
+              <div class="login-main" style="min-height:500px;">
 
-                <?php 
-                //$linkRecovery='';
-                //if(sessionVar('hrec')!=''){
-                if(getVar('sent')=='ok' && sessionVar('hrec')!=''){
-                  
-                  ?>
-                  
+
+                  <?php if(getVar('sent')=='ok'){?>
                   <center>
-                  <h4>Confira sua caixa de entrada</h4>
+                  <h4>Confira sua Caixa de Entrada</h4>
                   <p>
-                  Se o email informado corresponder a um cadastro válido em nosso sistema em breve enviaremos as informações de recuperação da senha de acesso.
+                  Siga as instruções fornecidas na mensagem que enviamos para seu e-mail.
                   <br />
-                  <br />
-                  <b>Ainda não recebeu?</b> 
-                  <br />
-                  Não esqueça de conferir a pasta SPAM ou Lixo Eletrônico as vezes aparece por lá ;)
-                  <br />
-                  <br />
-                  <span id="tmPwdRec"></span>
                   <br />
                   </p>
                   <p>
                   Dificuldade no acesso? Envie sua mensagem para:<br /><?php echo MAILSUPORTE;?>
-                  </p></center>
-                  <form>
-                  <input type="hidden" id="cdhsh" value="<?php echo sessionVar('hrec');?>" />
-                  </form>
-
-                
-                <?php 
-                if(sessionVar('hrec')){
-                    //unset($_SESSION['hrec']);
-                }
-                }else{ ?>
-                
-                
-                <form class="theme-form" method="POST" action="<?php echo URLAPP . 'user/new-pwd'?>">
-                  <h4>Recuperar Senha de Acesso</h4>
-                  <p>Para iniciar o processo de recuperação de sua senha, informe o endereço de email utilizado em seu cadastro e clique em Recuperar Senha</p>
-                  <div class="form-group">
-                    <label class="col-form-label">Endereço de e-mail</label>
-                    <input style="text-align:center;" class="form-control" type="text" required="" placeholder="seu@email.com" name="lstpwd" value="<?php echo postVar('lstpwd');?>">
-                  </div>
-
-                  <div class="form-group mb-0">
-                    <button class="btn btn-primary btn-block btrecpwd" type="submit">Recuperar Senha</button>
-                  </div>
-
-                  <?php 
-                  //exibe mensagens
-                  if(getVar('sent')=='uerr'){echo '<br /><center><h6 class="cred">Usuário não encontrado</h6></center>';}
-                  if(getVar('sent')=='err'){echo '<br /><center><h6 class="cred">Ocorreu um erro tente novamente dentro de alguns minutos</h6></center>';}
-                  ?>
-
-                  <p class="mt-4 mb-0">Já cadastrado?<a class="ml-2" href="<?php echo URLAPP . 'user/login'?>">Acessar</a></p>
+                  </p>
+                  <p class="mt-4 mb-0"><b>Recebeu a mensagem?</b> <a class="ml-2" href="<?php echo URLAPP . 'user/login'?>">Acesse aqui.</a></p>
+                  </center>
+                  <?php }?>
                   
-                </form>
-                
-                <?php }?>
+                  
+                  
+                  <?php if(getVar('sent')=='err'){?>
+                  <center>
+                  <h4>Ocorreu um Erro!</h4>
+                  <p>
+                  Não foi possível recuperar seus dados de acesso. Certifique-se de o link esteja correto e dentro do prazo de validade. 
+                  <br />
+                  <br />
+                  <a href="<?php echo URLAPP;?>user/new-pwd">Clique aqui</a> para solicitar um link atualizado para recuperação dos dados de acesso.
+                  <br />
+                  <br />
+                  </p>
+                  <p>
+                  <b>Dificuldade no acesso?</b><br />Envie sua mensagem para:<br /><?php echo MAILSUPORTE;?>
+                  </p>
+                  <p class="mt-4 mb-0">Já cadastrado?<a class="ml-2" href="<?php echo URLAPP . 'user/login'?>">Acessar</a></p>
+                  </center>  
+                                    
+                  <?php }?>
+                  
                 
               </div>
             </div>

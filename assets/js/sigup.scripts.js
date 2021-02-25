@@ -1,10 +1,12 @@
-      //confere email
+
       function formatoEmail(email){
-          var exclude=/[^@\-\.\w]|^[_@\.\-]|[\._\-]{2}|[@\.]{2}|(@)[^@]*\1/;
-          var check=/@[\w\-]+\./;
-          var checkend=/\.[a-zA-Z]{2,3}$/;
-          if(((email.search(exclude) != -1)||(email.search(check)) == -1)||(email.search(checkend) == -1)){ return false;}
-          else { return true;}
+          var str = email;
+          var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+          if(filtro.test(str)) {
+              return true;
+          } else {
+              return false;
+          }
       }
 
       //confere força da senha
@@ -125,7 +127,8 @@
                   $('#notificaErros').hide();
                   $('#checkbox1').removeAttr('disabled');
                   //$('#btSubmit').removeAttr('disabled');                
-                  $('#rv_ckmail').val('');}
+                  $('#rv_ckmail').val('');
+                  }
                   
               if(data==1001){//email em uso
                   $('#rv_email').css('color','red');
@@ -134,6 +137,7 @@
                   $('#checkbox1').attr('disabled','disabled');
                   $('#btSubmit').attr('disabled','disabled');                  
                   $('#notificaErros').show();
+                  alert("Email já cadastrado, volte e\ninforme outro endereço de email!");
                   eForm++;}
                   
               if(data==1002){//email invalido
@@ -285,6 +289,29 @@
 
 
 $(document).ready(function () {
+  
+      $('#loading').hide();
+
+        //reenvio link de ativacao
+        $("#btreclnk").click(function(e) {
+          var eml = $('#umail').val();
+          if(formatoEmail(eml)==false){
+            alert('O endereço de email informado não é válido!');
+          }else{
+            $('#loading').show();
+            var dataForm = $( "#recAct" ).serialize();
+            var request = $.ajax({
+              url: appPath + 'user/new-lnk',
+              method: "POST",
+              data: dataForm,
+              dataType: "html",
+              success: function(data) {
+                  eval(data);
+                }
+            });               
+          }
+        });
+
 
       $(".bt-next").click(function() {
               
@@ -337,7 +364,8 @@ $(document).ready(function () {
         $("#btSubmit").click(function(e) {
           
           e.preventDefault();
-          e.stopImmediatePropagation();          
+          e.stopImmediatePropagation();   
+          $('#loading').show();       
           
           var formError=false;
           //check fields

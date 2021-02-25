@@ -23,6 +23,8 @@ define('USERLEVEL',$u_level);
 define('USEDASHBOARD',$u_level);
 define('UIDEMPRESA',1);
 define('MAILSUPORTE','suporte@obavisto.com.br');
+define('MAILFROM','obv2@actoweb.com.br');
+define('LOGOMAIL','https://obavisto2.actoweb.com.br/assets/images/logo/logo-login.png');
 $_formData = array();
 $_erroForm = array();
 

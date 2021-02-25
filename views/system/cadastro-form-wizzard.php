@@ -10,8 +10,28 @@
     <base href="<?php echo URLAPP;?>">
     <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-    <title>Cadastro <?php echo TITLEAPP;?></title>
+    <title><?php echo TITLEAPP;?> - Cadastro</title>
     <!-- Google font-->
+    <style>
+      #loading {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: fixed;
+        display: block;
+        opacity: 0.8;
+        background-color: #fff;
+        z-index: 99;
+        text-align: center;
+      }
+
+      #loading-image {
+        position: absolute;
+        top: 50%;
+        z-index: 100;
+      }
+    </style>    
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.css">
@@ -38,6 +58,9 @@
     <link rel="stylesheet" type="text/css" href="assets/css/css-register.css">
   </head>
   <body>
+  <div id="loading">
+  <img id="loading-image" src="assets/images/Preloader_12.gif" alt="Loading..." />
+  </div>    
     <!-- login page start-->
     <div class="container-fluid p-0">
       <div class="row">

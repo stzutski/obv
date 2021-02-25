@@ -26,19 +26,29 @@ if(!sessionVar('usersys')){//caso operacoes login logout
       if(getVar('user')=='new'){
         require_once('views/system/cadastro-form-wizzard.php');
       }
-      if(getVar('user')=='confirm'){ /*  ?user=confirm&code= */
+      if(getVar('user')=='confirm'){ 
+        require_once('models/user-confirmation.model.php');
         require_once('views/system/cadastro-confirmation.php');
       }
-      if(getVar('user')=='activation'){ /*  ?user=activation&code=  */
-        
+      if(getVar('user')=='activation'){ 
         require_once('models/user-activation.model.php');
         require_once('views/system/cadastro-confirmation.php');
       }
-      if(getVar('user')=='new-pwd'){ /*  ?user=activation&code=  */
-        
+      if(getVar('user')=='new-pwd'){ 
+        if(getVar('sent')==''){
         require_once('models/user-passRecovery.model.php');
+        }
         require_once('views/system/lost-password.php');
       }        
+      if(getVar('user')=='pwdrecovery'){ 
+        if(getVar('h')!='' && getVar('sent')==''){
+          require_once('models/user-passRecovery.model.php');
+        }
+        if(getVar('sent')!=''){
+          require_once('views/system/tmp-password-ok.php');
+        }
+      }        
+
 
     
     
@@ -61,6 +71,10 @@ if(!sessionVar('usersys')){//caso operacoes login logout
         require_once('models/user-passRecovery.model.php');
         require_once('views/system/lost-password.php');
       }      
+      if(getVar('user')=='new-lnk'){ 
+        require_once('models/user-newlink.model.php');
+      }      
+      
       
     }
     

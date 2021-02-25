@@ -31,37 +31,29 @@
     
     <div class="main" style="margin:30px auto;max-width: 650px;">
     
-        <div class="logo"><img src="{%logoMail%}" alt="Logo E-mail ObaVisto" width="200" height="59"></div>
+        <div class="logo"><img  src="https://obavisto2.actoweb.com.br/assets/images/logo/logo-login.png" alt="Logo E-mail ObaVisto" width="200" height="59"></div>
         
         <div class="bodyContent">
         
             <div class="mailHeader">
-              <h2>Recuperação de Senha de Acesso!</h2>
-              <p><strong class="userName">Olá, {%emailUsuario%}.</strong></p>
+              <h2>Bem vindo ao ObaVisto!</h2>
+              <p><strong class="userName">Ola, {%nomeUsuario%}</strong></p>
             </div>
             
             <div class="mailBody">
               <p>
-              Recebemos um pedido para recuperação da senha da acesso<br />para o usuario acima:
+              Falta pouco para você ter acesso à nossa plataforma, por favor confirme seu cadastro clicando no botão abaixo.
               <br />
               <br />
-              Clique no botão abaixo para recuperar sua senha de acesso!
-              <br />
-              <br />
-              <a href="{%linkRecuperacao%}" class="btn" style="color:#ffffff;">RECUPERAR MEU ACESSO!</a>
+              <a href="{%codigoDeAtivacao%}" class="btn" style="color:#ffffff;">RECUPERAR MINHA SENHA DE ACESSO!</a>
               </p>
               <p class="altLnk">Se tiver problemas, copie e cole o link abaixo<br />na barra de endereços do seu navegador:<br />
-              <a href="{%codigoDeAtivacao%}" title="Clique aqui recuperar a senha de acesso">{%linkRecuperacao%}</a></small>
+              <a href="{%codigoDeAtivacao%}" title="Clique aqui recuperar a senha de acesso">{%codigoDeAtivacao%}</a></small>
               <br />
-              <br />
-              <small><span style="padding:5px;color:#fff;display:inline-block;border:1px #ccc solid;background:#AC0000;">Este link estará ativo até: {%horarioLimite%}</span></small>
               <br />
               <br />
               </p>
-              <p  class="footerNotes">
-                <small>
-                  <b>NOTAS:</b> Se não quiser alterar a senha ou não tiver feito essa solicitação, basta ignorar e excluir esta mensagem. - 
-                  Caso você desconfie desta solicitação nos comunique. Por favor não responda este email, esta é uma mensagem automática e não será respondida. Para falar com nosso atendimento envie sua mensagem para o email <a href="mailto:{%mailSuporte%}">{%mailSuporte%}</a></small></p>
+              <p  class="footerNotes"><small>Caso você desconfie desta solicitação nos comunique. - Por favor não responda este email, esta é uma mensagem automática e nenhum atendente irá retornar, para falar com nosso atendimento envie sua mensagem para o email <a href="mailto:{%mailSuporte%}">{%mailSuporte%}</a></small></p>
             </div>
             
             <div class="mailFooter"><p>EQUIPE OBAVISTO</p></div>

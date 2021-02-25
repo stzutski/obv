@@ -1,6 +1,7 @@
 <?php 
   use \php\classes\DB\Sql;
   use \php\classes\site\CadUserCli;
+  use \php\classes\site\Notifica;
 
 /*
  * receber dados do post
@@ -64,7 +65,7 @@ if(getVar('new')=='user'){
         $msgErro[]  = 'O campo senha e confira a senha devem ser idênticos'; 
     }
     
-    //caso existam erros no dados do formulário exibe mensagem de erro
+    //Conferencia de erros
     if(count($msgErro)>0){
       $msgAlert='';
       for ($i = 0; $i < count($msgErro); $i++)
@@ -73,21 +74,41 @@ if(getVar('new')=='user'){
       }
       echo "alert($msgAlert)";
     }
-    else //CASO NENHUM ERRO ENTÃO PROSSEGUE COM O CADASTRO
+    else //CASO NENHUM ERRO:: rotina de cadastro e notificacao
     {
       
       $usercli = new CadUserCli();
-      $addUser = $usercli->cadastraUsuario($dataUser);
-      echo $addUser;
+      $codAtivacao = $usercli->cadastraUsuario($dataUser);
       
-    }
+      if($codAtivacao){//recebe codigo de ativacao
+        
+        logsys('RECEBIDO CODIGO DE ATIVACAO DO NOVO USUARIO: '.$codAtivacao);
+        
+        //notifica o usuario
+        $notifica            = new Notifica();
+        $notifica->to        = $dataUser['email_usuario'];
+        $notifica->from      = MAILFROM;
+        $notifica->subject   = 'Bem vindo ao ObaVisto!';
+        $notifica->mailVars  = array(
+                                  'nomeUsuario'=>$dataUser['nome_usuario'],
+                                  'sobrenomeUsuario'=>$dataUser['sobrenome_usuario'],
+                                  'emailUsuario'=>$dataUser['email_usuario'],
+                                  'logoMail'=>LOGOMAIL,
+                                  'mailSuporte'=>MAILSUPORTE,
+                                  'codigoDeAtivacao'=>URLAPP.'?user=activation&code='.$codAtivacao);
+        
+        //guarda dados em session caso necessite reenvio
+        $_mailVars = json_encode($notifica->mailVars);
+        $_SESSION['resendActivation']   = $_mailVars;
+        
+        if($notifica->mailUserBemVindo()){//redireciona o cliente para a tela de confirmacao
+          echo 'window.location="'.URLAPP.'?user=confirm&code='.$codAtivacao.'"';
+        }
+      }
+      
+      
+    }//fim da rotina de cadastro e notificacao
     
-    //$ret = 'ERROR|0000';//erro desconhecido
-    //$ret = 'ERROR|1000';//dados incompletos
-    //$ret = 'ERROR|1001';//email ja cadastrado
-    //$ret = 'ERROR|1002';//email invalido
-    //$ret = 'ERROR|1100';//erro no processamento (tente mais tarde)
-    //$ret = 'YXBwL29iYXZpc3Rvcm9iZXJ0by5yc2NAZ21haWwuY29tLmJy';
     
 }
 ?>

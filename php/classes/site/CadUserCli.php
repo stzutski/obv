@@ -26,8 +26,8 @@ class CadUserCli {
     }
   
   }//fim do consultaEmail
-  
-  
+
+  //cadastra novo usuario no sistema
   public function addNewUser($args=array()){
     
     //conferimos se o email informado não esta em uso
@@ -67,6 +67,7 @@ class CadUserCli {
     
   }
   
+  //cadastra novo cliente com base no usuário cadastrado
   public function addNewClient($args=array()){
     
     $query_addCli = 'INSERT INTO clientes (
@@ -107,7 +108,7 @@ class CadUserCli {
     
   }
   
-  //metodo para remocao de usuarios
+  //metodo para remocao de usuarios com base no ID USUARIO
   public function delUser($id_usuario){
     $sql    = new Sql();
     $remUse = $sql->query('DELETE FROM usuarios WHERE id_usuario = :id_usuario', array(':id_usuario'=>$id_usuario));
@@ -182,26 +183,21 @@ class CadUserCli {
             
             $this->delUser($usuario);
             $this->delClientUser($usuario); 
-            
             return 'alert("02 ERRO TENTE NOVAMENTE MAIS TARDE!!!")';
             
           }
           elseif(count($res)==1)
           {
-            //SE APENAS 1 REGISTRO FOR ENCONTRATO!!!
-            //return 'alert("TUDO CERTO!!!")';
-            return 'window.location="'.URLAPP.'?user=confirm&code='.$codAtivacao.'"';
-            
+            //SE APENAS 1 REGISTRO FOR ENCONTRATO!!
+            //CADASTRO OK RETORNA O CODIGO DE ATIVACAO DO USUARIO 
+            //return 'window.location="'.URLAPP.'?user=confirm&code='.$codAtivacao.'"';
+            return $userArgs['cod_ativacao'];
           }
-        
       }
-      
     }//final cadastro 
- 
   }//final cadastraUsuario
   
-  
-  //metodo para gerar o hash de recuperacao de senha
+  //metodo para gerar o hash de recuperacao de senha (retorna um array com dados do usuario e o hash gerado)
   public function passRecovery($email=''){
     
       $ret = '';//var para retorno
@@ -221,14 +217,19 @@ class CadUserCli {
         }
         elseif(count($res)==1)//caso encontrado então gera o link para recuperacao com base no ID e EMAIL do usuario
         {
-          logsys("End de email localizado na tab usuarios");
+          $_userData  = array();
+          $dataUser   = $res[0];
+          $_linkTtime = date('Y-m-d H:i:s');
+          $_userData['userdata']  = $dataUser;
+          $_userData['hash']      = md5(  base64_encode($dataUser['id_usuario'])  );
+          $_userData['hrlimit']   = date("d/m/Y H:i:s", strtotime("+1 hours"));
           
-          logsys("Gerando HASH e inserindo na tabela de hash");
+          logsys("End de email localizado na tab usuarios");
           
           $paramsRecovery = array(
                               ':id_usuario'=>$res[0]['id_usuario'],
-                              ':hash_recovery'=>md5(  base64_encode($res[0]['id_usuario'])  ),
-                              ':dt_register'=>date('Y-m-d H:i:s')
+                              ':hash_recovery'=>md5(  base64_encode($dataUser['id_usuario'])  ),
+                              ':dt_register'=>$_linkTtime
                               );
           
           logsys("Bindo do HASH: ".json_encode($paramsRecovery));
@@ -248,16 +249,18 @@ class CadUserCli {
           if($res>1){//se hash anotado corretamente retorna a url para redirect
             logsys("Hash registrado com sucesso");
             
-            $user_key     = md5(base64_encode($res[0]['id_usuario']));
-            $user_uid     = $res[0]['id_usuario'];
-            $_url = URLAPP."user/new-pwd/u/$user_uid/code/$user_key";
-            $ret = $_url;
+            $user_key     = md5(base64_encode($dataUser['id_usuario']));
+            $user_uid     = $dataUser['id_usuario'];
+            $_url         = URLAPP."user/new-pwd/u/$user_uid/code/$user_key";
+            $ret          = $_url;
             
             logsys("Hash registrado com sucesso retornando a url: $ret");
             
-            return $ret;
+            //$_userData['userdata']  = $res[0];
+            $_userData['urlHash']      = $ret;
             
-            
+            //retorna a URL com o hash para o reset da senha do usuário
+            return $_userData;
             
           }else{//caso contrario retorna falso
             
@@ -275,10 +278,6 @@ class CadUserCli {
     }
   
   }//end method passRecovery
-  
-  
-  
-  
   
   //metodo para conferir o hash de recuperacao e autorizar a nova senha
   public function chkPassRecovery($hash='',$uid=''){
@@ -305,9 +304,91 @@ class CadUserCli {
     return $ret;
   }
   
+  //metodo para salvar senha temporaria no banco de dados
+  public function savePwdTmp($uid='',$pwdTmp=''){
   
+    if($uid!='' && $pwdTmp!=''){//se id de usuario e senha temporaria for informada procede com o update
+      $sql    = new Sql();
+      $update = $sql->query('UPDATE usuarios SET 
+                            pwd_usuario = :pwd_usuario 
+                            WHERE 
+                            id_usuario = :id_usuario',array(':pwd_usuario'=>$pwdTmp,
+                                                            ':id_usuario'=>$uid));
+                                                            
+      if($update==1){//se retornar 1 linha alterada entao ok
+        
+        //entao remove todas as solicitacoes de alteracao de senha pendentes na tabela
+        $remove = $sql->query('DELETE FROM pwd_recovery WHERE
+                              id_usuario = :id_usuario',array(':id_usuario'=>$uid));
+        
+        //retorna o ID USUARIO que teve sua senha atualizada
+        return $uid;
+      }
+      else
+      {
+        //retorna ZERO informando que ocorreu um erro na atualizacao da senha temporaria
+        return 0;
+      }
+                                                            
+      
+    }
+    else //caso contrario retorna false
+    {
+        return false;
+    }
+    
+  }
   
-  
+  //metodo para validar o HASH de recuperacao de senha e retornar o ID USUARIO
+  public function getUserByHash($hash=''){
+
+    if($hash!='')
+    {
+      //consulta validade do link HASH
+      $sql = new Sql();
+      $res = $sql->select('SELECT * FROM pwd_recovery WHERE 
+                          hash_recovery = :hash_recovery AND
+                          DATE_ADD(dt_register, INTERVAL 1 HOUR) >= NOW()',
+                          array(':hash_recovery'=>getVar('h')));
+                          
+      //caso nada encontrado então ou o HASH é inválido ou o tempo limite expirou
+      if(count($res)==0){
+        //sinaliza como não alterado pois o hash é invalido
+        $_result = 0;
+      }
+      else
+      {
+        //recebe ID USUARIO que sera necessario para o update da senha 
+        $recoveryData = $res[0];
+        $_result      = $recoveryData['id_usuario'];                          
+      }        
+      return $_result;
+      
+    }
+    else
+    {
+        return false;
+    }
+
+  }
+
+  //metodo para retornar dados do usuario pelo ID USUARIO
+  public function getUserById($uid=''){
+    if($uid!=''){//se ID USUARIO for informado
+
+      $sql = new Sql();
+      $res = $sql->select('SELECT * FROM usuarios WHERE id_usuario = :id_usuario',array(':id_usuario'=>$uid));
+      if(count($res)==0){//se nada encontrado
+          return 0;
+      }else{
+          return $res[0];//se usuario encontrado (retorna um array associativo com os dados dele)
+      }
+    
+    }else{//se ID USUARIO não informado RETORNA FALSE
+        return false;
+    }  
+
+  } 
 
 }
 ?>
