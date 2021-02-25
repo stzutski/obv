@@ -2,6 +2,9 @@
 namespace php\classes\site;
 
 use \php\classes\DB\Sql;
+use \php\classes\phpmailer\PHPMailer;
+use \php\classes\phpmailer\SMTP;
+use \php\classes\phpmailer\Exception;
 
 class Notifica {
 
@@ -28,6 +31,7 @@ public function notifica($opt=''){
 
 public function mailUserBemVindo(){
   
+  logsys('EXECUTANDO METODO DE ENVIO MSG DE BOAS VINDAS');
   $this->template = 'views/mails/bem-vindo.php';
   $argsMail       = $this->configMailMessage($this->mailVars);
   logsys('Ok agora vamos enviar a MSG');
@@ -65,22 +69,71 @@ public function enviaEmail($message){
   
   logsys('Configurando Header e tudo mais....');
 
-  $headers  = 'MIME-Version: 1.0' . "\r\n";
-  $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+  $mail = new PHPMailer();
+  $mail->isSMTP();
+  $mail->SMTPDebug = SMTP::DEBUG_OFF;
+  $mail->CharSet = 'UTF-8';
+  
+  /* DEFINE O METODO DE ENVIO */
+  $provinder='cpanel';
+  
+  
+  if($provinder=='sendgrid'){
+  
+      $mail->Host = 'smtp.sendgrid.net';
+      $mail->Port = 465;
+      $mail->SMTPSecure = 'ssl';
+      $mail->SMTPAuth = true;      
+      $mail->Username = 'apikey';
+      $mail->Password = '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';
+      $mail->setFrom('central@actoweb.com.br', 'ObaVisto!');
+      $mail->addReplyTo('central@actoweb.com.br', 'ObaVisto!');  
+  
+  }
+  
+  if($provinder=='gmail'){
 
-  // Additional headers
-  $headers .= 'To: ' . $this->to . "\r\n";
-  $headers .= 'From: ' . $this->from . "\r\n";
-  $headers .= 'Reply-To: ' . $this->reply . "\r\n";
-  $headers .= 'X-Mailer: PHP/ ' . phpversion();
+      $mail->Host = 'smtp.gmail.com';
+      $mail->Port = 465;
+      $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+      $mail->SMTPAuth = true;
+      $mail->Username = 'website.demonstracao@gmail.com';
+      $mail->Password = 'Nv183474';
+      $mail->setFrom('website.demonstracao@gmail.com', 'ObaVisto!');
+      $mail->addReplyTo('website.demonstracao@gmail.com', 'ObaVisto!'); 
+  }
+  
+  if($provinder=='cpanel'){
 
-  if(!mail($this->to, $this->subject, $message, $headers)){
-    logsys('Opa deu algo de errado não deu para enviar a MSG!!!');
+      $mail->Host = 'mail.actoweb.com.br';
+      $mail->Port = 465;
+      //$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+      $mail->SMTPSecure = 'ssl';
+      $mail->SMTPAuth = true;
+      $mail->Username = 'obv@actoweb.com.br';
+      $mail->Password = 'Nv32125//*+';
+      $mail->setFrom('obv@actoweb.com.br', 'ObaVisto!');
+      $mail->addReplyTo('obv@actoweb.com.br', 'ObaVisto!');  
+  
+  }
+
+  //MESSAGE
+  $mail->addAddress($this->to, '');
+  $mail->isHTML(true);                                  
+  $mail->Subject = $this->subject;
+  $mail->Body    = $message;
+  $mail->AltBody = 'Ative a Leitura de mensagens HTML do seu leitor de email';
+
+
+  //send the message, check for errors
+  if (!$mail->send()) {
+    logsys('Ops deu erro no envio da msg!!! detalhes do erro:' .$mail->ErrorInfo);
     return false;
-  }else{
+  } else {
     logsys('Msg enviada com sucesso!');
     return true;
   }
+
 
 }
 

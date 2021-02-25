@@ -51,7 +51,7 @@
               <a href="{%linkRecuperacao%}" class="btn" style="color:#ffffff;">RECUPERAR MEU ACESSO!</a>
               </p>
               <p class="altLnk">Se tiver problemas, copie e cole o link abaixo<br />na barra de endereços do seu navegador:<br />
-              <a href="{%codigoDeAtivacao%}" title="Clique aqui recuperar a senha de acesso">{%linkRecuperacao%}</a></small>
+              <a href="{%linkRecuperacao%}" title="Clique aqui recuperar a senha de acesso">{%linkRecuperacao%}</a></small>
               <br />
               <br />
               <small><span style="padding:5px;color:#fff;display:inline-block;border:1px #ccc solid;background:#AC0000;">Este link estará ativo até: {%horarioLimite%}</span></small>

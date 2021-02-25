@@ -3,3 +3,92 @@
 24/02/21 - 19:25:06 - Ok agora vamos enviar a MSG com a senha temporária do usuario
 24/02/21 - 19:25:06 - Configurando Header e tudo mais....
 24/02/21 - 19:25:10 - Msg enviada com sucesso!
+25/02/21 - 12:10:44 - Activation: REVALIDANDO rsend: (mail) code:(1f660dc1ca0e750819419a0875d95603) 
+25/02/21 - 12:10:44 - Activation: RESULTADOS ENCONTRADOS (1)
+25/02/21 - 12:10:44 - Activation: encontrado 1 cadastro para ser ATIVADO
+25/02/21 - 12:10:44 - Activation: cadastro já esta ativo basta logar
+25/02/21 - 12:10:44 - Status $ _statusCad(2) FOOTER 
+25/02/21 - 12:10:52 - Activation: REVALIDANDO rsend: (mail) code:(1f660dc1ca0e750819419a0875d95603) 
+25/02/21 - 12:10:52 - Activation: RESULTADOS ENCONTRADOS (1)
+25/02/21 - 12:10:52 - Activation: encontrado 1 cadastro para ser ATIVADO
+25/02/21 - 12:10:52 - Activation: cadastro já esta ativo basta logar
+25/02/21 - 12:10:52 - Status $ _statusCad(2) FOOTER 
+25/02/21 - 12:11:16 - Activation: REVALIDANDO rsend: () code:(321) 
+25/02/21 - 12:11:17 - Activation: RESULTADOS ENCONTRADOS (0)
+25/02/21 - 12:11:17 - Activation: nenhum cadastro localizado
+25/02/21 - 12:11:17 - Status $ _statusCad(0) FOOTER 
+25/02/21 - 12:11:44 - EXECUTANDO METODO DE ENVIO MSG DE BOAS VINDAS
+25/02/21 - 12:11:44 - uhm será necessário configurar variaveis na msg vamos lá
+25/02/21 - 12:11:44 - MSG configurada devolvendo recursos
+25/02/21 - 12:11:44 - Ok agora vamos enviar a MSG
+25/02/21 - 12:11:44 - Configurando Header e tudo mais....
+25/02/21 - 12:15:02 - Activation: REVALIDANDO rsend: () code:(321) 
+25/02/21 - 12:15:02 - Activation: RESULTADOS ENCONTRADOS (0)
+25/02/21 - 12:15:02 - Activation: nenhum cadastro localizado
+25/02/21 - 12:15:02 - Status $ _statusCad(0) FOOTER 
+25/02/21 - 12:15:18 - EXECUTANDO METODO DE ENVIO MSG DE BOAS VINDAS
+25/02/21 - 12:15:18 - uhm será necessário configurar variaveis na msg vamos lá
+25/02/21 - 12:15:18 - MSG configurada devolvendo recursos
+25/02/21 - 12:15:18 - Ok agora vamos enviar a MSG
+25/02/21 - 12:15:18 - Configurando Header e tudo mais....
+25/02/21 - 12:18:30 - Activation: REVALIDANDO rsend: () code:(321) 
+25/02/21 - 12:18:30 - Activation: RESULTADOS ENCONTRADOS (0)
+25/02/21 - 12:18:30 - Activation: nenhum cadastro localizado
+25/02/21 - 12:18:30 - Status $ _statusCad(0) FOOTER 
+25/02/21 - 12:18:37 - EXECUTANDO METODO DE ENVIO MSG DE BOAS VINDAS
+25/02/21 - 12:18:37 - uhm será necessário configurar variaveis na msg vamos lá
+25/02/21 - 12:18:37 - MSG configurada devolvendo recursos
+25/02/21 - 12:18:37 - Ok agora vamos enviar a MSG
+25/02/21 - 12:18:37 - Configurando Header e tudo mais....
+25/02/21 - 12:18:38 - Msg enviada com sucesso!
+25/02/21 - 12:18:38 - Activation: REVALIDANDO rsend: () code:(1f660dc1ca0e750819419a0875d95603) 
+25/02/21 - 12:18:38 - Activation: RESULTADOS ENCONTRADOS (1)
+25/02/21 - 12:18:38 - Activation: encontrado 1 cadastro para ser ATIVADO
+25/02/21 - 12:18:38 - Activation: cadastro já esta ativo basta logar
+25/02/21 - 12:18:38 - Status $ _statusCad(2) FOOTER 
+25/02/21 - 12:23:24 - Activation: REVALIDANDO rsend: () code:(000) 
+25/02/21 - 12:23:24 - Activation: RESULTADOS ENCONTRADOS (0)
+25/02/21 - 12:23:24 - Activation: nenhum cadastro localizado
+25/02/21 - 12:23:24 - Status $ _statusCad(0) FOOTER 
+25/02/21 - 12:26:51 - Activation: REVALIDANDO rsend: () code:(000) 
+25/02/21 - 12:26:51 - Activation: RESULTADOS ENCONTRADOS (0)
+25/02/21 - 12:26:51 - Activation: nenhum cadastro localizado
+25/02/21 - 12:26:51 - Status $ _statusCad(0) FOOTER 
+25/02/21 - 12:26:55 - EXECUTANDO METODO DE ENVIO MSG DE BOAS VINDAS
+25/02/21 - 12:26:55 - uhm será necessário configurar variaveis na msg vamos lá
+25/02/21 - 12:26:55 - MSG configurada devolvendo recursos
+25/02/21 - 12:26:55 - Ok agora vamos enviar a MSG
+25/02/21 - 12:26:55 - Configurando Header e tudo mais....
+25/02/21 - 12:26:56 - Msg enviada com sucesso!
+25/02/21 - 12:26:56 - Activation: REVALIDANDO rsend: () code:(1f660dc1ca0e750819419a0875d95603) 
+25/02/21 - 12:26:56 - Activation: RESULTADOS ENCONTRADOS (1)
+25/02/21 - 12:26:56 - Activation: encontrado 1 cadastro para ser ATIVADO
+25/02/21 - 12:26:56 - Activation: cadastro já esta ativo basta logar
+25/02/21 - 12:26:56 - Status $ _statusCad(2) FOOTER 
+25/02/21 - 12:27:46 - dados recebidos chave: 1f660dc1ca0e750819419a0875d95603
+25/02/21 - 12:27:46 - cadastro localizado! [1] - id(84)
+25/02/21 - 12:27:46 - Este usuário JÁ ESTA ATIVO
+25/02/21 - 12:27:46 - É so mandar fazer o login!
+25/02/21 - 12:27:46 - Status $ _statusCad(2) FOOTER 
+25/02/21 - 12:28:11 - End de email recebido: website.demonstracao@gmail.com
+25/02/21 - 12:28:11 - End de email VALIDO
+25/02/21 - 12:28:11 - End de email localizado na tab usuarios
+25/02/21 - 12:28:11 - Bindo do HASH: {":id_usuario":"84",":hash_recovery":"7f009fca152ba6b20c79d01e73ed9153",":dt_register":"2021-02-25 12:28:11"}
+25/02/21 - 12:28:11 - numero de linhas afetadas: ("11")
+25/02/21 - 12:28:11 - Hash registrado com sucesso
+25/02/21 - 12:28:11 - Hash registrado com sucesso retornando a url: http://localhost/labs/obv/user/new-pwd/u/84/code/7f009fca152ba6b20c79d01e73ed9153
+25/02/21 - 12:28:11 - HASH RECEBIDO============ (7f009fca152ba6b20c79d01e73ed9153) ====
+25/02/21 - 12:28:11 - DADOS DO USUARIO==== {"id_usuario":"84","id_empresa":"1","nome_usuario":"Roberto","sobrenome_usuario":"Stzutski","email_usuario":"website.demonstracao@gmail.com","telefone_usuario":null,"pwd_usuario":"ZjAzM2E4MDgzMDhiZWQyYzZhMTRjYmY4MDJiYzIzYTQ9PT0=","permissao_usuario":"cliente","dt_usuario":"1614107492","lst_login_usuario":null,"cod_ativacao_usuario":"1f660dc1ca0e750819419a0875d95603","status_usuario":"1"}
+25/02/21 - 12:28:11 - HASH TRUE link gerado
+25/02/21 - 12:28:11 - iniciando rotina de envio de email
+25/02/21 - 12:28:11 - uhm será necessário configurar variaveis na msg vamos lá
+25/02/21 - 12:28:11 - MSG configurada devolvendo recursos
+25/02/21 - 12:28:11 - Ok agora vamos enviar a MSG
+25/02/21 - 12:28:11 - Configurando Header e tudo mais....
+25/02/21 - 12:28:12 - Msg enviada com sucesso!
+25/02/21 - 12:28:12 - Email enviado com sucesso check inbox
+25/02/21 - 12:29:16 - uhm será necessário configurar variaveis na msg vamos lá
+25/02/21 - 12:29:16 - MSG configurada devolvendo recursos
+25/02/21 - 12:29:16 - Ok agora vamos enviar a MSG com a senha temporária do usuario
+25/02/21 - 12:29:16 - Configurando Header e tudo mais....
+25/02/21 - 12:29:17 - Msg enviada com sucesso!
